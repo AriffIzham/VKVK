@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misi Kembara VKVK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Fredoka', sans-serif; }
+    body { background: #f0f8ff; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 15px; }
+    
+    .game-card { background: #ffffff; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 650px; padding: 25px; text-align: center; border: 4px solid #4a90e2; }
+    
+    h1 { color: #2c3e50; margin-bottom: 10px; font-size: 1.8rem; }
+    p { color: #7f8c8d; font-size: 1.1rem; margin-bottom: 20px; }
+    
+    .v { color: #e74c3c; font-weight: 700; }
+    .kvk { color: #2980b9; font-weight: 700; }
+    
+    .emoji-display { font-size: 4.5rem; margin: 15px 0; animation: bounce 1s infinite alternate; }
+    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+    
+    .btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin-top: 20px; }
+    
+    .btn { background: #ff9f43; color: white; border: none; padding: 14px 20px; font-size: 1.2rem; font-weight: 700; border-radius: 16px; cursor: pointer; box-shadow: 0 4px #ee5253; transition: all 0.1s; }
+    .btn:active { transform: translateY(4px); box-shadow: none; }
+    .btn-primary { background: #10ac84; box-shadow: 0 4px #108f6e; width: 100%; margin-top: 15px; }
+    
+    .word-box { background: #f1f2f6; border: 3px dashed #cbd5e0; border-radius: 16px; padding: 15px; font-size: 1.8rem; margin: 15px 0; min-height: 70px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+    
+    .pyramid-text { text-align: left; background: #eccc68; padding: 15px; border-radius: 16px; margin: 15px 0; color: #2f3542; font-size: 1.2rem; line-height: 1.6; }
+    
+    .score-board { font-size: 1.2rem; font-weight: bold; color: #ff9f43; margin-bottom: 15px; }
+    
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+  <div class="game-card">
+    <!-- MENU UTAMA -->
+    <div id="screen-menu">
+      <h1>🎮 Misi Kembara VKVK</h1>
+      <p>Kehidupan Seharian Saya</p>
+      <div class="emoji-display">🏠 🐟 🍎</div>
+      <button class="btn btn-primary" onclick="startGame()">MULA BERMAIN</button>
+    </div>
+
+    <!-- SKRIN PERMAINAN -->
+    <div id="screen-game" class="hidden">
+      <div class="score-board" id="score">Mata: 0</div>
+      <h2 id="stage-title" style="color: #333; font-size: 1.3rem;"></h2>
+      
+      <div id="emoji-container" class="emoji-display"></div>
+      <div id="word-display" class="word-box"></div>
+      
+      <div id="pyramid-container" class="pyramid-text hidden"></div>
+
+      <div id="options-container" class="btn-grid"></div>
+    </div>
+
+    <!-- SKRIN TAMAT -->
+    <div id="screen-end" class="hidden">
+      <h1>🏆 SYABAS!</h1>
+      <p>Anda telah berjaya menamatkan semua misi VKVK!</p>
+      <div class="emoji-display">⭐ ⭐ ⭐</div>
+      <button class="btn btn-primary" onclick="location.reload()">MAIN SEMULA</button>
+    </div>
+  </div>
+
+  <script>
+    // Kesan Audio Guna Web Audio API
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    function playSound(type) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      if (type === 'correct') {
+        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.3);
+      } else {
+        osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.2);
+      }
+    }
+
+    // Data Permainan
+    const stages = [
+      // Tahap 1: Cari Vokal
+      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🧑', suffix: 'dik', correct: 'a', options: ['a', 'i', 'u'] },
+      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🐟', suffix: 'kan', correct: 'i', options: ['a', 'i', 'u'] },
+      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🍎', suffix: 'pal', correct: 'e', options: ['e', 'o', 'a'] },
+      
+      // Tahap 2: Pilih Perkataan
+      { type: 'word', title: 'Tahap 2: Suai Padan Perkataan', emoji: '🍗', correct: 'a-yam', options: ['a-yam', 'i-tik', 'u-bat'] },
+      { type: 'word', title: 'Tahap 2: Suai Padan Perkataan', emoji: '🦆', correct: 'i-tik', options: ['i-tik', 'a-wan', 'e-pal'] },
+      
+      // Tahap 3: Bina Frasa
+      { type: 'phrase', title: 'Tahap 3: Bina Frasa Mudah', emoji: '🧑', text: 'adik + ___', correct: 'saya', options: ['saya', 'segar', 'pahit'] },
+      { type: 'phrase', title: 'Tahap 3: Bina Frasa Mudah', emoji: '🐟', text: 'ikan + ___', correct: 'segar', options: ['segar', 'manis', 'putih'] },
+
+      // Tahap 4: Piramid Membaca
+      { 
+        type: 'pyramid', 
+        title: 'Tahap 4: Piramid Membaca & Kuis', 
+        emoji: '📖', 
+        lines: ['Ikan.', 'Ini ikan.', 'Ini ikan adik.', 'Adik makan ikan.'],
+        question: 'Siapa makan ikan?',
+        correct: 'Adik',
+        options: ['Adik', 'Atuk']
+      }
+    ];
+
+    let currentStage = 0;
+    let score = 0;
+
+    function startGame() {
+      document.getElementById('screen-menu').classList.add('hidden');
+      document.getElementById('screen-game').classList.remove('hidden');
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const data = stages[currentStage];
+      document.getElementById('stage-title').innerText = data.title;
+      document.getElementById('emoji-container').innerText = data.emoji;
+      
+      const wordBox = document.getElementById('word-display');
+      const pyramidBox = document.getElementById('pyramid-container');
+      const optionsBox = document.getElementById('options-container');
+      
+      wordBox.innerHTML = '';
+      pyramidBox.classList.add('hidden');
+      optionsBox.innerHTML = '';
+
+      if (data.type === 'vowel') {
+        wordBox.innerHTML = `<span class="v">_</span><span class="kvk">${data.suffix}</span>`;
+        data.options.forEach(opt => {
+          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt.toUpperCase()}</button>`;
+        });
+      } else if (data.type === 'word') {
+        wordBox.innerText = ' Pilih perkataan betul';
+        data.options.forEach(opt => {
+          const parts = opt.split('-');
+          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')"><span class="v">${parts[0]}</span><span class="kvk">${parts[1]}</span></button>`;
+        });
+      } else if (data.type === 'phrase') {
+        wordBox.innerText = data.text;
+        data.options.forEach(opt => {
+          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt}</button>`;
+        });
+      } else if (data.type === 'pyramid') {
+        pyramidBox.classList.remove('hidden');
+        pyramidBox.innerHTML = data.lines.map(line => `<p>• ${line}</p>`).join('') + `<br><strong>Soalan: ${data.question}</strong>`;
+        data.options.forEach(opt => {
+          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt}</button>`;
+        });
+      }
+    }
+
+    function checkAnswer(selected, correct) {
+      if (selected === correct) {
+        playSound('correct');
+        score += 10;
+        document.getElementById('score').innerText = `Mata: ${score}`;
+        currentStage++;
+        
+        if (currentStage < stages.length) {
+          loadQuestion();
+        } else {
+          document.getElementById('screen-game').classList.add('hidden');
+          document.getElementById('screen-end').classList.remove('hidden');
+        }
+      } else {
+        playSound('wrong');
+        alert('Cuba lagi ya!');
+      }
+    }
+  </script>
+</body>
+</html>

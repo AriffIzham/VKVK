@@ -1,188 +1,2603 @@
 <!DOCTYPE html>
+
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Misi Kembara VKVK</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Fredoka', sans-serif; }
-    body { background: #f0f8ff; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 15px; }
-    
-    .game-card { background: #ffffff; border-radius: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 650px; padding: 25px; text-align: center; border: 4px solid #4a90e2; }
-    
-    h1 { color: #2c3e50; margin-bottom: 10px; font-size: 1.8rem; }
-    p { color: #7f8c8d; font-size: 1.1rem; margin-bottom: 20px; }
-    
-    .v { color: #e74c3c; font-weight: 700; }
-    .kvk { color: #2980b9; font-weight: 700; }
-    
-    .emoji-display { font-size: 4.5rem; margin: 15px 0; animation: bounce 1s infinite alternate; }
-    @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-10px); } }
-    
-    .btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 12px; margin-top: 20px; }
-    
-    .btn { background: #ff9f43; color: white; border: none; padding: 14px 20px; font-size: 1.2rem; font-weight: 700; border-radius: 16px; cursor: pointer; box-shadow: 0 4px #ee5253; transition: all 0.1s; }
-    .btn:active { transform: translateY(4px); box-shadow: none; }
-    .btn-primary { background: #10ac84; box-shadow: 0 4px #108f6e; width: 100%; margin-top: 15px; }
-    
-    .word-box { background: #f1f2f6; border: 3px dashed #cbd5e0; border-radius: 16px; padding: 15px; font-size: 1.8rem; margin: 15px 0; min-height: 70px; display: flex; justify-content: center; align-items: center; gap: 8px; }
-    
-    .pyramid-text { text-align: left; background: #eccc68; padding: 15px; border-radius: 16px; margin: 15px 0; color: #2f3542; font-size: 1.2rem; line-height: 1.6; }
-    
-    .score-board { font-size: 1.2rem; font-weight: bold; color: #ff9f43; margin-bottom: 15px; }
-    
-    .hidden { display: none !important; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Misi Kembara VKVK</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Fredoka", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, #dff5ff 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #f5e6ff 0%, transparent 35%),
+        #f4f9ff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   MAIN CARD
+========================================================= */
+
+.game-card {
+
+    width: 100%;
+    max-width: 760px;
+
+    min-height: 650px;
+
+    background: #ffffff;
+
+    border: 4px solid #4a90e2;
+
+    border-radius: 30px;
+
+    padding: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.12);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+h1 {
+    color: #2d3436;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #636e72;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home-logo {
+
+    font-size: 5rem;
+
+    margin: 20px 0;
+
+    animation: floatLogo 1.5s infinite alternate;
+}
+
+@keyframes floatLogo {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+.home-title {
+    font-size: 2.2rem;
+    color: #2c3e50;
+}
+
+.home-subtitle {
+    color: #636e72;
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   NAME INPUT
+========================================================= */
+
+.name-label {
+
+    display: block;
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    color: #2d3436;
+
+    margin-top: 20px;
+
+    margin-bottom: 8px;
+}
+
+.name-input {
+
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    border: 3px solid #dfe6e9;
+
+    outline: none;
+
+    text-align: center;
+
+    font-size: 1.2rem;
+
+    transition: 0.2s;
+
+    background: #fafafa;
+}
+
+.name-input:focus {
+
+    border-color: #4a90e2;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(74,144,226,0.12);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 16px;
+
+    padding: 15px 18px;
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-top: 12px;
+
+    transition: 0.15s;
+
+    box-shadow: 0 5px rgba(0,0,0,0.18);
+}
+
+.btn:active {
+
+    transform: translateY(4px);
+
+    box-shadow: none;
+}
+
+.btn-primary {
+
+    background: #10ac84;
+}
+
+.btn-primary:hover {
+    background: #0e9d79;
+}
+
+.btn-blue {
+
+    background: #4a90e2;
+}
+
+.btn-orange {
+
+    background: #ff9f43;
+}
+
+.btn-purple {
+
+    background: #9b59b6;
+}
+
+.btn-grey {
+
+    background: #636e72;
+}
+
+.btn-red {
+
+    background: #e74c3c;
+}
+
+
+/* =========================================================
+   GAME TOP BAR
+========================================================= */
+
+.top-bar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.home-small {
+
+    width: auto;
+
+    margin: 0;
+
+    padding: 9px 15px;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   STUDENT
+========================================================= */
+
+.student-name {
+
+    color: #0984e3;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin: 15px 0;
+}
+
+.dashboard-box {
+
+    background: #f8f9fa;
+
+    border: 2px solid #e9ecef;
+
+    border-radius: 16px;
+
+    padding: 12px 5px;
+
+    text-align: center;
+}
+
+.dashboard-icon {
+    font-size: 1.3rem;
+}
+
+.dashboard-label {
+
+    font-size: 0.75rem;
+
+    color: #636e72;
+
+    margin-top: 3px;
+}
+
+.dashboard-value {
+
+    font-size: 1.45rem;
+
+    font-weight: 700;
+
+    color: #2d3436;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-container {
+
+    height: 20px;
+
+    background: #e9ecef;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 10px 0 5px;
+}
+
+.progress-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: linear-gradient(
+        90deg,
+        #10ac84,
+        #2ecc71
+    );
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+
+    text-align: center;
+
+    font-size: 0.85rem;
+
+    color: #636e72;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   STAGE
+========================================================= */
+
+.stage-title {
+
+    font-size: 1.35rem;
+
+    margin-bottom: 5px;
+
+    color: #2d3436;
+}
+
+.stage-subtitle {
+
+    color: #636e72;
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================================
+   EMOJI
+========================================================= */
+
+.emoji-display {
+
+    font-size: 4.5rem;
+
+    margin: 15px 0;
+
+    animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   WORD BOX
+========================================================= */
+
+.word-box {
+
+    min-height: 90px;
+
+    background: #f1f2f6;
+
+    border: 3px dashed #cbd5e0;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    font-size: 2rem;
+
+    font-weight: 600;
+
+    margin: 15px 0;
+}
+
+.vowel {
+    color: #e74c3c;
+}
+
+.kvk {
+    color: #2980b9;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.answer-btn {
+
+    background: #ff9f43;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px #e67e22;
+
+    transition: 0.15s;
+}
+
+.answer-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+.answer-btn:active {
+
+    transform: translateY(4px);
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   FEEDBACK
+========================================================= */
+
+.feedback {
+
+    min-height: 38px;
+
+    font-size: 1.15rem;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+.feedback.correct {
+    color: #10ac84;
+}
+
+.feedback.wrong {
+    color: #e74c3c;
+}
+
+
+/* =========================================================
+   PYRAMID
+========================================================= */
+
+.pyramid {
+
+    background: #fff3cd;
+
+    border: 2px solid #f6d365;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    text-align: left;
+
+    margin: 15px 0;
+
+    color: #2d3436;
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+}
+
+.pyramid p {
+
+    margin-bottom: 3px;
+
+    color: #2d3436;
+}
+
+.question {
+
+    margin-top: 12px;
+
+    font-weight: 700;
+
+    color: #2d3436;
+}
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-icon {
+
+    font-size: 5rem;
+
+    margin: 20px 0;
+}
+
+.final-score {
+
+    font-size: 3rem;
+
+    color: #ff9f43;
+
+    font-weight: 700;
+
+    margin: 15px 0;
+}
+
+.final-stars {
+
+    font-size: 3rem;
+
+    margin: 15px 0;
+}
+
+.final-message {
+
+    font-size: 1.15rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   DASHBOARD HISTORY
+========================================================= */
+
+.history-card {
+
+    background: #f8f9fa;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    text-align: left;
+
+    margin-top: 15px;
+
+    border: 2px solid #e9ecef;
+}
+
+.history-title {
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    color: #2d3436;
+
+    margin-bottom: 8px;
+}
+
+.history-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #dee2e6;
+
+    font-size: 0.9rem;
+}
+
+.history-item:last-child {
+
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 550px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .game-card {
+
+        min-height: 100vh;
+
+        border-radius: 20px;
+
+        padding: 18px;
+
+        border-width: 3px;
+    }
+
+    .home-title {
+        font-size: 1.8rem;
+    }
+
+    .home-logo {
+        font-size: 4rem;
+    }
+
+    .emoji-display {
+        font-size: 3.5rem;
+    }
+
+    .word-box {
+        font-size: 1.7rem;
+    }
+
+    .dashboard {
+        gap: 6px;
+    }
+
+    .dashboard-value {
+        font-size: 1.2rem;
+    }
+
+    .options-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .answer-btn {
+        font-size: 1.05rem;
+        padding: 13px 8px;
+    }
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <div class="game-card">
-    <!-- MENU UTAMA -->
-    <div id="screen-menu">
-      <h1>🎮 Misi Kembara VKVK</h1>
-      <p>Kehidupan Seharian Saya</p>
-      <div class="emoji-display">🏠 🐟 🍎</div>
-      <button class="btn btn-primary" onclick="startGame()">MULA BERMAIN</button>
+<div class="game-card">
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section id="screen-home">
+
+```
+<div class="home-logo">
+    🎮🧑‍🎓📚
+</div>
+
+<h1 class="home-title">
+    Misi Kembara VKVK
+</h1>
+
+<p class="home-subtitle">
+    🌟 Kehidupan Seharian Saya 🌟
+</p>
+
+<p>
+    Mari belajar membaca perkataan VKVK
+    melalui permainan!
+</p>
+
+<label class="name-label">
+    👤 Nama Murid
+</label>
+
+<input
+    type="text"
+    id="student-name"
+    class="name-input"
+    placeholder="Tulis nama anda..."
+    maxlength="40"
+    autocomplete="off"
+>
+
+<button
+    class="btn btn-primary"
+    onclick="startGame()"
+>
+    🚀 MULA BERMAIN
+</button>
+
+<button
+    class="btn btn-blue"
+    onclick="openDashboard()"
+>
+    📊 DASHBOARD
+</button>
+```
+
+</section>
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    id="screen-dashboard"
+    class="hidden"
+>
+
+```
+<h1>📊 Dashboard Murid</h1>
+
+<p class="subtitle">
+    Rekod pembelajaran Misi Kembara VKVK
+</p>
+
+<div
+    class="student-name"
+    id="dashboard-name"
+>
+    Belum ada nama
+</div>
+
+
+<div class="dashboard">
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            🏆
+        </div>
+
+        <div class="dashboard-label">
+            Mata
+        </div>
+
+        <div
+            class="dashboard-value"
+            id="dashboard-score"
+        >
+            0
+        </div>
+
     </div>
 
-    <!-- SKRIN PERMAINAN -->
-    <div id="screen-game" class="hidden">
-      <div class="score-board" id="score">Mata: 0</div>
-      <h2 id="stage-title" style="color: #333; font-size: 1.3rem;"></h2>
-      
-      <div id="emoji-container" class="emoji-display"></div>
-      <div id="word-display" class="word-box"></div>
-      
-      <div id="pyramid-container" class="pyramid-text hidden"></div>
 
-      <div id="options-container" class="btn-grid"></div>
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            🎯
+        </div>
+
+        <div class="dashboard-label">
+            Misi
+        </div>
+
+        <div
+            class="dashboard-value"
+            id="dashboard-missions"
+        >
+            0
+        </div>
+
     </div>
 
-    <!-- SKRIN TAMAT -->
-    <div id="screen-end" class="hidden">
-      <h1>🏆 SYABAS!</h1>
-      <p>Anda telah berjaya menamatkan semua misi VKVK!</p>
-      <div class="emoji-display">⭐ ⭐ ⭐</div>
-      <button class="btn btn-primary" onclick="location.reload()">MAIN SEMULA</button>
-    </div>
-  </div>
 
-  <script>
-    // Kesan Audio Guna Web Audio API
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    function playSound(type) {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-      
-      if (type === 'correct') {
-        osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
-        osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
-        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.3);
-      } else {
-        osc.frequency.setValueAtTime(220, audioCtx.currentTime); // A3
-        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.2);
-      }
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            ⭐
+        </div>
+
+        <div class="dashboard-label">
+            Bintang
+        </div>
+
+        <div
+            class="dashboard-value"
+            id="dashboard-stars"
+        >
+            0
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="history-card">
+
+    <div class="history-title">
+        📜 Rekod Terakhir
+    </div>
+
+    <div id="history-list">
+
+        <p>
+            Belum ada rekod permainan.
+        </p>
+
+    </div>
+
+</div>
+
+
+<button
+    class="btn btn-primary"
+    onclick="goHome()"
+>
+    🏠 HOME
+</button>
+```
+
+</section>
+
+<!-- =====================================================
+     GAME
+===================================================== -->
+
+<section
+    id="screen-game"
+    class="hidden"
+>
+
+```
+<div class="top-bar">
+
+    <div
+        class="student-name"
+        id="game-student-name"
+    >
+    </div>
+
+    <button
+        class="btn btn-grey home-small"
+        onclick="goHome()"
+    >
+        🏠 Home
+    </button>
+
+</div>
+
+
+<div class="dashboard">
+
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            🏆
+        </div>
+
+        <div class="dashboard-label">
+            Mata
+        </div>
+
+        <div
+            class="dashboard-value"
+            id="score"
+        >
+            0
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            🎯
+        </div>
+
+        <div class="dashboard-label">
+            Misi
+        </div>
+
+        <div class="dashboard-value">
+
+            <span id="current-mission">
+                1
+            </span>
+
+            /
+
+            <span id="total-mission">
+                30
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-box">
+
+        <div class="dashboard-icon">
+            ⭐
+        </div>
+
+        <div class="dashboard-label">
+            Bintang
+        </div>
+
+        <div
+            class="dashboard-value"
+            id="stars"
+        >
+            0
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="progress-container">
+
+    <div
+        class="progress-bar"
+        id="progress-bar"
+    >
+    </div>
+
+</div>
+
+<div
+    class="progress-text"
+    id="progress-text"
+>
+    Kemajuan: 0%
+</div>
+
+
+<h2
+    class="stage-title"
+    id="stage-title"
+>
+</h2>
+
+<p
+    class="stage-subtitle"
+    id="stage-subtitle"
+>
+</p>
+
+
+<div
+    id="emoji-container"
+    class="emoji-display"
+>
+</div>
+
+
+<div
+    id="word-display"
+    class="word-box"
+>
+</div>
+
+
+<div
+    id="pyramid-container"
+    class="pyramid hidden"
+>
+</div>
+
+
+<div
+    id="feedback"
+    class="feedback"
+>
+</div>
+
+
+<div
+    id="options-container"
+    class="options-grid"
+>
+</div>
+```
+
+</section>
+
+<!-- =====================================================
+     END
+===================================================== -->
+
+<section
+    id="screen-end"
+    class="hidden"
+>
+
+```
+<div class="final-icon">
+    🏆
+</div>
+
+<h1>
+    SYABAS!
+</h1>
+
+<p
+    class="final-message"
+    id="final-message"
+>
+</p>
+
+<div
+    class="final-stars"
+    id="final-stars"
+>
+    ⭐⭐⭐
+</div>
+
+<div
+    class="final-score"
+    id="final-score"
+>
+    0 Mata
+</div>
+
+<button
+    class="btn btn-primary"
+    onclick="restartGame()"
+>
+    🔄 MAIN SEMULA
+</button>
+
+<button
+    class="btn btn-blue"
+    onclick="openDashboard()"
+>
+    📊 LIHAT DASHBOARD
+</button>
+
+<button
+    class="btn btn-grey"
+    onclick="goHome()"
+>
+    🏠 HOME
+</button>
+```
+
+</section>
+
+</div>
+
+<script>
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+let audioCtx = null;
+
+
+function initAudio() {
+
+    if (!audioCtx) {
+
+        audioCtx =
+            new (
+                window.AudioContext ||
+                window.webkitAudioContext
+            )();
+
     }
 
-    // Data Permainan
-    const stages = [
-      // Tahap 1: Cari Vokal
-      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🧑', suffix: 'dik', correct: 'a', options: ['a', 'i', 'u'] },
-      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🐟', suffix: 'kan', correct: 'i', options: ['a', 'i', 'u'] },
-      { type: 'vowel', title: 'Tahap 1: Pilih Vokal Awal', emoji: '🍎', suffix: 'pal', correct: 'e', options: ['e', 'o', 'a'] },
-      
-      // Tahap 2: Pilih Perkataan
-      { type: 'word', title: 'Tahap 2: Suai Padan Perkataan', emoji: '🍗', correct: 'a-yam', options: ['a-yam', 'i-tik', 'u-bat'] },
-      { type: 'word', title: 'Tahap 2: Suai Padan Perkataan', emoji: '🦆', correct: 'i-tik', options: ['i-tik', 'a-wan', 'e-pal'] },
-      
-      // Tahap 3: Bina Frasa
-      { type: 'phrase', title: 'Tahap 3: Bina Frasa Mudah', emoji: '🧑', text: 'adik + ___', correct: 'saya', options: ['saya', 'segar', 'pahit'] },
-      { type: 'phrase', title: 'Tahap 3: Bina Frasa Mudah', emoji: '🐟', text: 'ikan + ___', correct: 'segar', options: ['segar', 'manis', 'putih'] },
+    if (audioCtx.state === "suspended") {
 
-      // Tahap 4: Piramid Membaca
-      { 
-        type: 'pyramid', 
-        title: 'Tahap 4: Piramid Membaca & Kuis', 
-        emoji: '📖', 
-        lines: ['Ikan.', 'Ini ikan.', 'Ini ikan adik.', 'Adik makan ikan.'],
-        question: 'Siapa makan ikan?',
-        correct: 'Adik',
-        options: ['Adik', 'Atuk']
-      }
+        audioCtx.resume();
+
+    }
+
+}
+
+
+function playSound(type) {
+
+    try {
+
+        initAudio();
+
+        const osc =
+            audioCtx.createOscillator();
+
+        const gain =
+            audioCtx.createGain();
+
+        osc.connect(gain);
+
+        gain.connect(
+            audioCtx.destination
+        );
+
+
+        if (type === "correct") {
+
+            osc.type = "sine";
+
+            osc.frequency.setValueAtTime(
+                523.25,
+                audioCtx.currentTime
+            );
+
+            osc.frequency.setValueAtTime(
+                659.25,
+                audioCtx.currentTime + 0.12
+            );
+
+            osc.frequency.setValueAtTime(
+                783.99,
+                audioCtx.currentTime + 0.24
+            );
+
+            gain.gain.setValueAtTime(
+                0.12,
+                audioCtx.currentTime
+            );
+
+            osc.start();
+
+            osc.stop(
+                audioCtx.currentTime + 0.4
+            );
+
+        } else {
+
+            osc.type = "triangle";
+
+            osc.frequency.setValueAtTime(
+                220,
+                audioCtx.currentTime
+            );
+
+            gain.gain.setValueAtTime(
+                0.1,
+                audioCtx.currentTime
+            );
+
+            osc.start();
+
+            osc.stop(
+                audioCtx.currentTime + 0.25
+            );
+
+        }
+
+    } catch (error) {
+
+        console.log(
+            "Audio tidak tersedia."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   DATA VKVK
+========================================================= */
+
+const stages = [
+
+/* ---------------------------------------------------------
+   TAHAP 1
+   KENAL VOKAL
+--------------------------------------------------------- */
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🐟",
+    suffix: "kan",
+    correct: "i",
+    options: ["a","i","u"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🐔",
+    suffix: "yam",
+    correct: "a",
+    options: ["a","i","o"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🦆",
+    suffix: "tik",
+    correct: "i",
+    options: ["a","i","u"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🍎",
+    suffix: "pal",
+    correct: "e",
+    options: ["e","o","a"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "💊",
+    suffix: "bat",
+    correct: "u",
+    options: ["a","i","u"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🔥",
+    suffix: "pi",
+    correct: "a",
+    options: ["a","i","u"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🔦",
+    suffix: "bor",
+    correct: "o",
+    options: ["a","o","u"]
+},
+
+{
+    type: "vowel",
+    level: 1,
+    title: "Tahap 1: Cari Vokal",
+    subtitle: "Pilih vokal yang betul.",
+    emoji: "🥭",
+    suffix: "bat",
+    correct: "u",
+    options: ["a","i","u"]
+},
+
+
+/* ---------------------------------------------------------
+   TAHAP 2
+   PILIH PERKATAAN
+--------------------------------------------------------- */
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🐟",
+    correct: "i-kan",
+    options: [
+        "i-kan",
+        "a-yam",
+        "u-bat"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🐔",
+    correct: "a-yam",
+    options: [
+        "a-yam",
+        "i-tik",
+        "e-pal"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🦆",
+    correct: "i-tik",
+    options: [
+        "i-tik",
+        "u-bat",
+        "a-yam"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🍎",
+    correct: "e-pal",
+    options: [
+        "e-pal",
+        "i-kan",
+        "o-bor"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "💊",
+    correct: "u-bat",
+    options: [
+        "u-bat",
+        "a-yam",
+        "i-tik"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🔥",
+    correct: "a-pi",
+    options: [
+        "a-pi",
+        "i-kan",
+        "u-bat"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🔦",
+    correct: "o-bor",
+    options: [
+        "o-bor",
+        "e-pal",
+        "a-yam"
+    ]
+},
+
+{
+    type: "word",
+    level: 2,
+    title: "Tahap 2: Pilih Perkataan",
+    subtitle: "Pilih perkataan yang betul.",
+    emoji: "🐱",
+    correct: "e-kor",
+    options: [
+        "e-kor",
+        "i-kan",
+        "a-yam"
+    ]
+},
+
+
+/* ---------------------------------------------------------
+   TAHAP 3
+   BACA PERKATAAN
+--------------------------------------------------------- */
+
+{
+    type: "read",
+    level: 3,
+    title: "Tahap 3: Baca Perkataan",
+    subtitle: "Pilih perkataan yang sama dengan gambar.",
+    emoji: "🐟",
+    correct: "ikan",
+    options: [
+        "ikan",
+        "ayam",
+        "epal"
+    ]
+},
+
+{
+    type: "read",
+    level: 3,
+    title: "Tahap 3: Baca Perkataan",
+    subtitle: "Pilih perkataan yang sama dengan gambar.",
+    emoji: "🐔",
+    correct: "ayam",
+    options: [
+        "itik",
+        "ayam",
+        "ubat"
+    ]
+},
+
+{
+    type: "read",
+    level: 3,
+    title: "Tahap 3: Baca Perkataan",
+    subtitle: "Pilih perkataan yang sama dengan gambar.",
+    emoji: "🦆",
+    correct: "itik",
+    options: [
+        "ikan",
+        "itik",
+        "api"
+    ]
+},
+
+{
+    type: "read",
+    level: 3,
+    title: "Tahap 3: Baca Perkataan",
+    subtitle: "Pilih perkataan yang sama dengan gambar.",
+    emoji: "🍎",
+    correct: "epal",
+    options: [
+        "epal",
+        "ayam",
+        "obor"
+    ]
+},
+
+{
+    type: "read",
+    level: 3,
+    title: "Tahap 3: Baca Perkataan",
+    subtitle: "Pilih perkataan yang sama dengan gambar.",
+    emoji: "💊",
+    correct: "ubat",
+    options: [
+        "ubat",
+        "itik",
+        "ikan"
+    ]
+},
+
+
+/* ---------------------------------------------------------
+   TAHAP 4
+   BINA FRASA
+--------------------------------------------------------- */
+
+{
+    type: "phrase",
+    level: 4,
+    title: "Tahap 4: Bina Frasa",
+    subtitle: "Pilih perkataan yang sesuai.",
+    emoji: "🐟",
+    text: "ikan + ______",
+    correct: "segar",
+    options: [
+        "segar",
+        "pahit",
+        "tajam"
+    ]
+},
+
+{
+    type: "phrase",
+    level: 4,
+    title: "Tahap 4: Bina Frasa",
+    subtitle: "Pilih perkataan yang sesuai.",
+    emoji: "🐔",
+    text: "ayam + ______",
+    correct: "goreng",
+    options: [
+        "goreng",
+        "biru",
+        "panjang"
+    ]
+},
+
+{
+    type: "phrase",
+    level: 4,
+    title: "Tahap 4: Bina Frasa",
+    subtitle: "Pilih perkataan yang sesuai.",
+    emoji: "🍎",
+    text: "epal + ______",
+    correct: "merah",
+    options: [
+        "merah",
+        "tajam",
+        "pahit"
+    ]
+},
+
+{
+    type: "phrase",
+    level: 4,
+    title: "Tahap 4: Bina Frasa",
+    subtitle: "Pilih perkataan yang sesuai.",
+    emoji: "🔥",
+    text: "api + ______",
+    correct: "panas",
+    options: [
+        "panas",
+        "segar",
+        "manis"
+    ]
+},
+
+
+/* ---------------------------------------------------------
+   TAHAP 5
+   PIRAMID AYAT
+--------------------------------------------------------- */
+
+{
+    type: "pyramid",
+    level: 5,
+    title: "Tahap 5: Piramid Membaca",
+    subtitle: "Baca ayat dan jawab soalan.",
+    emoji: "📖",
+
+    lines: [
+        "Ikan.",
+        "Ini ikan.",
+        "Ini ikan adik.",
+        "Adik makan ikan."
+    ],
+
+    question: "Siapa makan ikan?",
+
+    correct: "Adik",
+
+    options: [
+        "Adik",
+        "Atuk"
+    ]
+},
+
+{
+    type: "pyramid",
+    level: 5,
+    title: "Tahap 5: Piramid Membaca",
+    subtitle: "Baca ayat dan jawab soalan.",
+    emoji: "📖",
+
+    lines: [
+        "Ayam.",
+        "Ini ayam.",
+        "Ini ayam ibu.",
+        "Ibu beri ayam makan."
+    ],
+
+    question: "Siapa beri ayam makan?",
+
+    correct: "Ibu",
+
+    options: [
+        "Ibu",
+        "Adik"
+    ]
+},
+
+{
+    type: "pyramid",
+    level: 5,
+    title: "Tahap 5: Piramid Membaca",
+    subtitle: "Baca ayat dan jawab soalan.",
+    emoji: "📖",
+
+    lines: [
+        "Epal.",
+        "Ini epal.",
+        "Ini epal merah.",
+        "Adik makan epal merah."
+    ],
+
+    question: "Siapa makan epal?",
+
+    correct: "Adik",
+
+    options: [
+        "Adik",
+        "Ayah"
+    ]
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentStage = 0;
+
+let score = 0;
+
+let stars = 0;
+
+let studentName = "";
+
+let answerLocked = false;
+
+
+/* =========================================================
+   INITIALISE
+========================================================= */
+
+document.getElementById(
+    "total-mission"
+).textContent = stages.length;
+
+
+/* =========================================================
+   START GAME
+========================================================= */
+
+function startGame() {
+
+    const input =
+        document.getElementById(
+            "student-name"
+        );
+
+    studentName =
+        input.value.trim();
+
+    if (!studentName) {
+
+        alert(
+            "😊 Sila tulis nama murid dahulu."
+        );
+
+        input.focus();
+
+        return;
+    }
+
+    initAudio();
+
+    currentStage = 0;
+
+    score = 0;
+
+    stars = 0;
+
+    answerLocked = false;
+
+
+    document.getElementById(
+        "game-student-name"
+    ).textContent =
+        "👤 " + studentName;
+
+
+    showScreen("screen-game");
+
+    updateGameDashboard();
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   SHOW SCREEN
+========================================================= */
+
+function showScreen(screenId) {
+
+    const screens = [
+        "screen-home",
+        "screen-dashboard",
+        "screen-game",
+        "screen-end"
     ];
 
-    let currentStage = 0;
-    let score = 0;
+    screens.forEach(
+        id => {
 
-    function startGame() {
-      document.getElementById('screen-menu').classList.add('hidden');
-      document.getElementById('screen-game').classList.remove('hidden');
-      loadQuestion();
-    }
+            document
+                .getElementById(id)
+                .classList.add("hidden");
 
-    function loadQuestion() {
-      const data = stages[currentStage];
-      document.getElementById('stage-title').innerText = data.title;
-      document.getElementById('emoji-container').innerText = data.emoji;
-      
-      const wordBox = document.getElementById('word-display');
-      const pyramidBox = document.getElementById('pyramid-container');
-      const optionsBox = document.getElementById('options-container');
-      
-      wordBox.innerHTML = '';
-      pyramidBox.classList.add('hidden');
-      optionsBox.innerHTML = '';
-
-      if (data.type === 'vowel') {
-        wordBox.innerHTML = `<span class="v">_</span><span class="kvk">${data.suffix}</span>`;
-        data.options.forEach(opt => {
-          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt.toUpperCase()}</button>`;
-        });
-      } else if (data.type === 'word') {
-        wordBox.innerText = ' Pilih perkataan betul';
-        data.options.forEach(opt => {
-          const parts = opt.split('-');
-          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')"><span class="v">${parts[0]}</span><span class="kvk">${parts[1]}</span></button>`;
-        });
-      } else if (data.type === 'phrase') {
-        wordBox.innerText = data.text;
-        data.options.forEach(opt => {
-          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt}</button>`;
-        });
-      } else if (data.type === 'pyramid') {
-        pyramidBox.classList.remove('hidden');
-        pyramidBox.innerHTML = data.lines.map(line => `<p>• ${line}</p>`).join('') + `<br><strong>Soalan: ${data.question}</strong>`;
-        data.options.forEach(opt => {
-          optionsBox.innerHTML += `<button class="btn" onclick="checkAnswer('${opt}', '${data.correct}')">${opt}</button>`;
-        });
-      }
-    }
-
-    function checkAnswer(selected, correct) {
-      if (selected === correct) {
-        playSound('correct');
-        score += 10;
-        document.getElementById('score').innerText = `Mata: ${score}`;
-        currentStage++;
-        
-        if (currentStage < stages.length) {
-          loadQuestion();
-        } else {
-          document.getElementById('screen-game').classList.add('hidden');
-          document.getElementById('screen-end').classList.remove('hidden');
         }
-      } else {
-        playSound('wrong');
-        alert('Cuba lagi ya!');
-      }
+    );
+
+    document
+        .getElementById(screenId)
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion() {
+
+    answerLocked = false;
+
+    const data =
+        stages[currentStage];
+
+
+    document.getElementById(
+        "stage-title"
+    ).textContent =
+        data.title;
+
+
+    document.getElementById(
+        "stage-subtitle"
+    ).textContent =
+        data.subtitle;
+
+
+    document.getElementById(
+        "emoji-container"
+    ).textContent =
+        data.emoji;
+
+
+    const wordBox =
+        document.getElementById(
+            "word-display"
+        );
+
+    const pyramidBox =
+        document.getElementById(
+            "pyramid-container"
+        );
+
+    const optionsBox =
+        document.getElementById(
+            "options-container"
+        );
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    wordBox.innerHTML = "";
+
+    pyramidBox.innerHTML = "";
+
+    pyramidBox.classList.add(
+        "hidden"
+    );
+
+    optionsBox.innerHTML = "";
+
+    feedback.textContent = "";
+
+    feedback.className =
+        "feedback";
+
+
+    /* -----------------------------------------------------
+       VOWEL
+    ----------------------------------------------------- */
+
+    if (data.type === "vowel") {
+
+        wordBox.innerHTML = `
+
+            <span class="vowel">
+                _
+            </span>
+
+            <span class="kvk">
+                ${data.suffix}
+            </span>
+
+        `;
+
     }
-  </script>
+
+
+    /* -----------------------------------------------------
+       WORD
+    ----------------------------------------------------- */
+
+    else if (
+        data.type === "word"
+    ) {
+
+        wordBox.innerHTML =
+            "🔎 Pilih perkataan yang betul";
+
+    }
+
+
+    /* -----------------------------------------------------
+       READ
+    ----------------------------------------------------- */
+
+    else if (
+        data.type === "read"
+    ) {
+
+        wordBox.innerHTML =
+            "📖 Pilih perkataan yang betul";
+
+    }
+
+
+    /* -----------------------------------------------------
+       PHRASE
+    ----------------------------------------------------- */
+
+    else if (
+        data.type === "phrase"
+    ) {
+
+        wordBox.innerHTML =
+            data.text;
+
+    }
+
+
+    /* -----------------------------------------------------
+       PYRAMID
+    ----------------------------------------------------- */
+
+    else if (
+        data.type === "pyramid"
+    ) {
+
+        pyramidBox.classList.remove(
+            "hidden"
+        );
+
+
+        data.lines.forEach(
+            line => {
+
+                const p =
+                    document.createElement(
+                        "p"
+                    );
+
+                p.textContent =
+                    "• " + line;
+
+                pyramidBox.appendChild(
+                    p
+                );
+
+            }
+        );
+
+
+        const question =
+            document.createElement(
+                "div"
+            );
+
+        question.className =
+            "question";
+
+        question.textContent =
+            "❓ " + data.question;
+
+        pyramidBox.appendChild(
+            question
+        );
+
+    }
+
+
+    /* -----------------------------------------------------
+       OPTIONS
+    ----------------------------------------------------- */
+
+    data.options.forEach(
+        option => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.className =
+                "answer-btn";
+
+            button.textContent =
+                option;
+
+            button.onclick =
+                () =>
+                    checkAnswer(
+                        option,
+                        data.correct
+                    );
+
+            optionsBox.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    updateGameDashboard();
+
+}
+
+
+/* =========================================================
+   CHECK ANSWER
+========================================================= */
+
+function checkAnswer(
+    selected,
+    correct
+) {
+
+    if (answerLocked) {
+        return;
+    }
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    if (
+        selected === correct
+    ) {
+
+        answerLocked = true;
+
+        playSound(
+            "correct"
+        );
+
+
+        score += 10;
+
+        stars += 1;
+
+
+        feedback.textContent =
+            "🎉 Betul! Hebat! Teruskan!";
+
+        feedback.className =
+            "feedback correct";
+
+
+        updateGameDashboard();
+
+
+        setTimeout(
+            () => {
+
+                currentStage++;
+
+                if (
+                    currentStage <
+                    stages.length
+                ) {
+
+                    loadQuestion();
+
+                } else {
+
+                    finishGame();
+
+                }
+
+            },
+            800
+        );
+
+    } else {
+
+        playSound(
+            "wrong"
+        );
+
+
+        feedback.textContent =
+            "💪 Cuba lagi. Kamu boleh!";
+
+        feedback.className =
+            "feedback wrong";
+
+    }
+
+}
+
+
+/* =========================================================
+   UPDATE GAME DASHBOARD
+========================================================= */
+
+function updateGameDashboard() {
+
+    document.getElementById(
+        "score"
+    ).textContent =
+        score;
+
+
+    document.getElementById(
+        "stars"
+    ).textContent =
+        stars;
+
+
+    document.getElementById(
+        "current-mission"
+    ).textContent =
+        Math.min(
+            currentStage + 1,
+            stages.length
+        );
+
+
+    const percentage =
+        Math.round(
+            (
+                currentStage /
+                stages.length
+            ) * 100
+        );
+
+
+    document.getElementById(
+        "progress-bar"
+    ).style.width =
+        percentage + "%";
+
+
+    document.getElementById(
+        "progress-text"
+    ).textContent =
+        "Kemajuan: " +
+        percentage +
+        "%";
+
+}
+
+
+/* =========================================================
+   FINISH GAME
+========================================================= */
+
+function finishGame() {
+
+    saveResult();
+
+
+    showScreen(
+        "screen-end"
+    );
+
+
+    document.getElementById(
+        "final-score"
+    ).textContent =
+        score + " Mata";
+
+
+    document.getElementById(
+        "final-message"
+    ).textContent =
+        "Syabas " +
+        studentName +
+        "! Kamu telah berjaya menamatkan semua misi VKVK.";
+
+
+    let finalStars;
+
+
+    if (score >= 250) {
+
+        finalStars =
+            "⭐⭐⭐";
+
+    } else if (
+        score >= 180
+    ) {
+
+        finalStars =
+            "⭐⭐";
+
+    } else {
+
+        finalStars =
+            "⭐";
+
+    }
+
+
+    document.getElementById(
+        "final-stars"
+    ).textContent =
+        finalStars;
+
+}
+
+
+/* =========================================================
+   SAVE RESULT
+========================================================= */
+
+function saveResult() {
+
+    const oldData =
+        JSON.parse(
+            localStorage.getItem(
+                "vkvk_results"
+            )
+        ) || [];
+
+
+    const result = {
+
+        name: studentName,
+
+        score: score,
+
+        stars: stars,
+
+        missions:
+            stages.length,
+
+        date:
+            new Date()
+                .toLocaleString(
+                    "ms-MY"
+                )
+
+    };
+
+
+    oldData.unshift(
+        result
+    );
+
+
+    const limitedData =
+        oldData.slice(
+            0,
+            10
+        );
+
+
+    localStorage.setItem(
+        "vkvk_results",
+        JSON.stringify(
+            limitedData
+        )
+    );
+
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+function openDashboard() {
+
+    const input =
+        document.getElementById(
+            "student-name"
+        );
+
+
+    if (
+        input &&
+        input.value.trim()
+    ) {
+
+        studentName =
+            input.value.trim();
+
+    }
+
+
+    updateDashboard();
+
+
+    showScreen(
+        "screen-dashboard"
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE DASHBOARD
+========================================================= */
+
+function updateDashboard() {
+
+    document.getElementById(
+        "dashboard-name"
+    ).textContent =
+        studentName
+            ? "👤 " + studentName
+            : "👤 Belum ada nama";
+
+
+    document.getElementById(
+        "dashboard-score"
+    ).textContent =
+        score;
+
+
+    document.getElementById(
+        "dashboard-missions"
+    ).textContent =
+        currentStage;
+
+
+    document.getElementById(
+        "dashboard-stars"
+    ).textContent =
+        stars;
+
+
+    renderHistory();
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+function renderHistory() {
+
+    const container =
+        document.getElementById(
+            "history-list"
+        );
+
+
+    const results =
+        JSON.parse(
+            localStorage.getItem(
+                "vkvk_results"
+            )
+        ) || [];
+
+
+    if (
+        results.length === 0
+    ) {
+
+        container.innerHTML =
+            "<p>Belum ada rekod permainan.</p>";
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    results.forEach(
+        result => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "history-item";
+
+
+            item.innerHTML = `
+
+                <span>
+                    👤 ${escapeHTML(
+                        result.name
+                    )}
+                </span>
+
+                <span>
+                    🏆 ${result.score}
+                </span>
+
+            `;
+
+
+            container.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartGame() {
+
+    currentStage = 0;
+
+    score = 0;
+
+    stars = 0;
+
+    answerLocked = false;
+
+
+    document.getElementById(
+        "game-student-name"
+    ).textContent =
+        "👤 " + studentName;
+
+
+    showScreen(
+        "screen-game"
+    );
+
+
+    updateGameDashboard();
+
+    loadQuestion();
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function goHome() {
+
+    updateDashboard();
+
+    showScreen(
+        "screen-home"
+    );
+
+}
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+document
+    .getElementById(
+        "student-name"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                startGame();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   LOAD SAVED NAME
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        const saved =
+            localStorage.getItem(
+                "vkvk_student_name"
+            );
+
+
+        if (saved) {
+
+            document.getElementById(
+                "student-name"
+            ).value =
+                saved;
+
+            studentName =
+                saved;
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SAVE NAME WHEN START
+========================================================= */
+
+const originalStartGame =
+    startGame;
+
+
+/*
+   Simpan nama secara automatik
+*/
+function saveStudentName() {
+
+    if (studentName) {
+
+        localStorage.setItem(
+            "vkvk_student_name",
+            studentName
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   PATCH START
+========================================================= */
+
+const originalStart =
+    window.startGame;
+
+
+window.startGame =
+    function() {
+
+        originalStart();
+
+        saveStudentName();
+
+    };
+
+
+</script>
+
 </body>
 </html>

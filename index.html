@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-
 <html lang="ms">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Misi Kembara VKVK</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
 /* =========================================================
-   GLOBAL
+   ASAS
 ========================================================= */
 
 * {
@@ -25,14 +42,26 @@
 }
 
 body {
+
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at top left, #dff5ff 0%, transparent 35%),
-        radial-gradient(circle at bottom right, #f5e6ff 0%, transparent 35%),
-        #f4f9ff;
+        radial-gradient(
+            circle at top left,
+            #dff6ff,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            #f3e4ff,
+            transparent 35%
+        ),
+        #f5f9ff;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     padding: 15px;
@@ -40,26 +69,38 @@ body {
 
 button,
 input {
+
     font-family: inherit;
+
 }
 
 button {
-    -webkit-tap-highlight-color: transparent;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+.hidden {
+
+    display: none !important;
+
 }
 
 
 /* =========================================================
-   MAIN CARD
+   KAD UTAMA
 ========================================================= */
 
 .game-card {
 
     width: 100%;
+
     max-width: 760px;
 
     min-height: 650px;
 
-    background: #ffffff;
+    background: white;
 
     border: 4px solid #4a90e2;
 
@@ -68,39 +109,38 @@ button {
     padding: 25px;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,0.12);
+        0 15px 35px
+        rgba(0,0,0,0.12);
 
-    position: relative;
-
-    overflow: hidden;
 }
 
 
 /* =========================================================
-   GENERAL
+   TAJUK
 ========================================================= */
 
-.hidden {
-    display: none !important;
-}
-
 h1 {
+
     color: #2d3436;
+
     font-size: 2rem;
+
     margin-bottom: 8px;
+
 }
 
 h2 {
+
     color: #2d3436;
-    margin-bottom: 10px;
+
+    margin-bottom: 8px;
+
 }
 
 p {
-    color: #636e72;
-}
 
-.subtitle {
-    font-size: 1.1rem;
+    color: #636e72;
+
 }
 
 
@@ -112,40 +152,74 @@ p {
 
     font-size: 5rem;
 
+    text-align: center;
+
     margin: 20px 0;
 
-    animation: floatLogo 1.5s infinite alternate;
+    animation:
+        floating 1.5s
+        infinite alternate;
+
 }
 
-@keyframes floatLogo {
+@keyframes floating {
 
     from {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
     to {
-        transform: translateY(-10px);
+
+        transform:
+            translateY(-10px);
+
     }
+
 }
 
 .home-title {
+
+    text-align: center;
+
     font-size: 2.2rem;
+
     color: #2c3e50;
+
 }
 
 .home-subtitle {
-    color: #636e72;
+
+    text-align: center;
+
+    font-size: 1.1rem;
+
     margin-bottom: 20px;
+
+}
+
+.home-description {
+
+    text-align: center;
+
+    line-height: 1.6;
+
 }
 
 
 /* =========================================================
-   NAME INPUT
+   INPUT NAMA
 ========================================================= */
 
 .name-label {
 
     display: block;
+
+    margin-top: 25px;
+
+    margin-bottom: 8px;
 
     font-size: 1.1rem;
 
@@ -153,9 +227,6 @@ p {
 
     color: #2d3436;
 
-    margin-top: 20px;
-
-    margin-bottom: 8px;
 }
 
 .name-input {
@@ -166,7 +237,10 @@ p {
 
     border-radius: 16px;
 
-    border: 3px solid #dfe6e9;
+    border:
+        3px solid #dfe6e9;
+
+    background: #fafafa;
 
     outline: none;
 
@@ -176,7 +250,6 @@ p {
 
     transition: 0.2s;
 
-    background: #fafafa;
 }
 
 .name-input:focus {
@@ -186,12 +259,14 @@ p {
     background: white;
 
     box-shadow:
-        0 0 0 4px rgba(74,144,226,0.12);
+        0 0 0 4px
+        rgba(74,144,226,0.12);
+
 }
 
 
 /* =========================================================
-   BUTTONS
+   BUTTON
 ========================================================= */
 
 .btn {
@@ -202,7 +277,9 @@ p {
 
     border-radius: 16px;
 
-    padding: 15px 18px;
+    padding: 15px;
+
+    margin-top: 12px;
 
     color: white;
 
@@ -212,86 +289,89 @@ p {
 
     cursor: pointer;
 
-    margin-top: 12px;
+    box-shadow:
+        0 5px rgba(0,0,0,0.18);
 
     transition: 0.15s;
 
-    box-shadow: 0 5px rgba(0,0,0,0.18);
 }
 
 .btn:active {
 
-    transform: translateY(4px);
+    transform:
+        translateY(4px);
 
     box-shadow: none;
+
 }
 
 .btn-primary {
 
     background: #10ac84;
-}
 
-.btn-primary:hover {
-    background: #0e9d79;
 }
 
 .btn-blue {
 
     background: #4a90e2;
+
 }
 
 .btn-orange {
 
     background: #ff9f43;
-}
 
-.btn-purple {
-
-    background: #9b59b6;
 }
 
 .btn-grey {
 
     background: #636e72;
+
 }
 
-.btn-red {
+.btn-purple {
 
-    background: #e74c3c;
+    background: #9b59b6;
+
 }
 
 
 /* =========================================================
-   GAME TOP BAR
+   TOP BAR
 ========================================================= */
 
 .top-bar {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: center;
 
     gap: 10px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+
 }
 
-.home-small {
+.small-home {
 
     width: auto;
 
     margin: 0;
 
-    padding: 9px 15px;
+    padding:
+        9px 15px;
 
-    font-size: 0.95rem;
+    font-size:
+        0.95rem;
+
 }
 
 
 /* =========================================================
-   STUDENT
+   NAMA MURID
 ========================================================= */
 
 .student-name {
@@ -302,12 +382,11 @@ p {
 
     font-weight: 700;
 
-    margin-bottom: 5px;
 }
 
 
 /* =========================================================
-   DASHBOARD
+   DASHBOARD MINI
 ========================================================= */
 
 .dashboard {
@@ -320,23 +399,28 @@ p {
     gap: 10px;
 
     margin: 15px 0;
+
 }
 
 .dashboard-box {
 
     background: #f8f9fa;
 
-    border: 2px solid #e9ecef;
+    border:
+        2px solid #e9ecef;
 
     border-radius: 16px;
 
-    padding: 12px 5px;
+    padding: 10px 5px;
 
     text-align: center;
+
 }
 
 .dashboard-icon {
+
     font-size: 1.3rem;
+
 }
 
 .dashboard-label {
@@ -345,18 +429,16 @@ p {
 
     color: #636e72;
 
-    margin-top: 3px;
 }
 
 .dashboard-value {
 
-    font-size: 1.45rem;
+    font-size: 1.4rem;
 
     font-weight: 700;
 
     color: #2d3436;
 
-    margin-top: 2px;
 }
 
 
@@ -374,7 +456,8 @@ p {
 
     overflow: hidden;
 
-    margin: 10px 0 5px;
+    margin-top: 10px;
+
 }
 
 .progress-bar {
@@ -383,47 +466,30 @@ p {
 
     width: 0%;
 
-    background: linear-gradient(
-        90deg,
-        #10ac84,
-        #2ecc71
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #10ac84,
+            #2ecc71
+        );
 
-    border-radius: 20px;
+    transition:
+        width 0.4s ease;
 
-    transition: width 0.4s ease;
 }
 
 .progress-text {
 
     text-align: center;
 
+    color: #636e72;
+
     font-size: 0.85rem;
 
-    color: #636e72;
+    margin-top: 5px;
 
     margin-bottom: 15px;
-}
 
-
-/* =========================================================
-   STAGE
-========================================================= */
-
-.stage-title {
-
-    font-size: 1.35rem;
-
-    margin-bottom: 5px;
-
-    color: #2d3436;
-}
-
-.stage-subtitle {
-
-    color: #636e72;
-
-    font-size: 0.95rem;
 }
 
 
@@ -433,40 +499,44 @@ p {
 
 .emoji-display {
 
+    text-align: center;
+
     font-size: 4.5rem;
 
     margin: 15px 0;
 
-    animation: bounce 1s infinite alternate;
+    animation:
+        bounce 1s
+        infinite alternate;
+
 }
 
 @keyframes bounce {
 
     from {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
     }
 
     to {
-        transform: translateY(-8px);
+
+        transform:
+            translateY(-8px);
+
     }
+
 }
 
 
 /* =========================================================
-   WORD BOX
+   WORD
 ========================================================= */
 
 .word-box {
 
     min-height: 90px;
-
-    background: #f1f2f6;
-
-    border: 3px dashed #cbd5e0;
-
-    border-radius: 18px;
-
-    padding: 20px;
 
     display: flex;
 
@@ -476,19 +546,39 @@ p {
 
     gap: 5px;
 
+    background: #f1f2f6;
+
+    border:
+        3px dashed #cbd5e0;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    margin: 15px 0;
+
     font-size: 2rem;
 
     font-weight: 600;
 
-    margin: 15px 0;
+    text-align: center;
+
 }
 
 .vowel {
+
     color: #e74c3c;
+
+    font-weight: 700;
+
 }
 
-.kvk {
+.consonant {
+
     color: #2980b9;
+
+    font-weight: 700;
+
 }
 
 
@@ -501,46 +591,49 @@ p {
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(130px, 1fr));
+        repeat(
+            auto-fit,
+            minmax(130px, 1fr)
+        );
 
     gap: 12px;
 
     margin-top: 15px;
+
 }
 
 .answer-btn {
-
-    background: #ff9f43;
-
-    color: white;
 
     border: none;
 
     border-radius: 16px;
 
-    padding: 15px;
+    padding: 15px 10px;
 
-    font-size: 1.25rem;
+    background: #ff9f43;
+
+    color: white;
+
+    font-size: 1.15rem;
 
     font-weight: 700;
 
     cursor: pointer;
 
-    box-shadow: 0 5px #e67e22;
+    box-shadow:
+        0 5px #e67e22;
 
     transition: 0.15s;
-}
 
-.answer-btn:hover {
-
-    transform: translateY(-2px);
 }
 
 .answer-btn:active {
 
-    transform: translateY(4px);
+    transform:
+        translateY(4px);
 
     box-shadow: none;
+
 }
 
 
@@ -552,52 +645,56 @@ p {
 
     min-height: 38px;
 
-    font-size: 1.15rem;
+    text-align: center;
+
+    font-size: 1.1rem;
 
     font-weight: 700;
 
     margin-top: 10px;
+
 }
 
 .feedback.correct {
+
     color: #10ac84;
+
 }
 
 .feedback.wrong {
+
     color: #e74c3c;
+
 }
 
 
 /* =========================================================
-   PYRAMID
+   PIRAMID
 ========================================================= */
 
 .pyramid {
 
     background: #fff3cd;
 
-    border: 2px solid #f6d365;
+    border:
+        2px solid #f6d365;
 
     border-radius: 18px;
 
     padding: 18px;
 
-    text-align: left;
-
     margin: 15px 0;
 
-    color: #2d3436;
-
-    font-size: 1.15rem;
+    text-align: left;
 
     line-height: 1.7;
+
 }
 
 .pyramid p {
 
-    margin-bottom: 3px;
-
     color: #2d3436;
+
 }
 
 .question {
@@ -607,6 +704,79 @@ p {
     font-weight: 700;
 
     color: #2d3436;
+
+}
+
+
+/* =========================================================
+   DASHBOARD PENUH
+========================================================= */
+
+.dashboard-title {
+
+    text-align: center;
+
+    margin-bottom: 5px;
+
+}
+
+.dashboard-subtitle {
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+}
+
+.history-card {
+
+    background: #f8f9fa;
+
+    border:
+        2px solid #e9ecef;
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    margin-top: 15px;
+
+}
+
+.history-title {
+
+    font-weight: 700;
+
+    font-size: 1.1rem;
+
+    color: #2d3436;
+
+    margin-bottom: 10px;
+
+}
+
+.history-item {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    gap: 10px;
+
+    padding: 9px 0;
+
+    border-bottom:
+        1px solid #dee2e6;
+
+    font-size: 0.9rem;
+
+}
+
+.history-item:last-child {
+
+    border-bottom: none;
+
 }
 
 
@@ -616,12 +786,37 @@ p {
 
 .final-icon {
 
+    text-align: center;
+
     font-size: 5rem;
 
-    margin: 20px 0;
+    margin: 25px 0;
+
+}
+
+.final-message {
+
+    text-align: center;
+
+    font-size: 1.15rem;
+
+    line-height: 1.6;
+
+}
+
+.final-stars {
+
+    text-align: center;
+
+    font-size: 3rem;
+
+    margin: 15px 0;
+
 }
 
 .final-score {
+
+    text-align: center;
 
     font-size: 3rem;
 
@@ -629,541 +824,656 @@ p {
 
     font-weight: 700;
 
-    margin: 15px 0;
-}
-
-.final-stars {
-
-    font-size: 3rem;
-
-    margin: 15px 0;
-}
-
-.final-message {
-
-    font-size: 1.15rem;
-
-    line-height: 1.6;
-
-    margin-bottom: 10px;
 }
 
 
 /* =========================================================
-   DASHBOARD HISTORY
-========================================================= */
-
-.history-card {
-
-    background: #f8f9fa;
-
-    border-radius: 16px;
-
-    padding: 15px;
-
-    text-align: left;
-
-    margin-top: 15px;
-
-    border: 2px solid #e9ecef;
-}
-
-.history-title {
-
-    font-size: 1.1rem;
-
-    font-weight: 700;
-
-    color: #2d3436;
-
-    margin-bottom: 8px;
-}
-
-.history-item {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 8px 0;
-
-    border-bottom: 1px solid #dee2e6;
-
-    font-size: 0.9rem;
-}
-
-.history-item:last-child {
-
-    border-bottom: none;
-}
-
-
-/* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 550px) {
 
     body {
-        padding: 8px;
+
+        padding: 5px;
+
     }
 
     .game-card {
 
         min-height: 100vh;
 
-        border-radius: 20px;
-
         padding: 18px;
 
-        border-width: 3px;
+        border-radius: 20px;
+
     }
 
     .home-title {
+
         font-size: 1.8rem;
+
     }
 
     .home-logo {
+
         font-size: 4rem;
+
     }
 
     .emoji-display {
+
         font-size: 3.5rem;
+
     }
 
     .word-box {
-        font-size: 1.7rem;
-    }
 
-    .dashboard {
-        gap: 6px;
+        font-size: 1.7rem;
+
     }
 
     .dashboard-value {
-        font-size: 1.2rem;
-    }
 
-    .options-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        font-size: 1.15rem;
+
     }
 
     .answer-btn {
-        font-size: 1.05rem;
-        padding: 13px 8px;
+
+        font-size: 1rem;
+
     }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="game-card">
+
 
 <!-- =====================================================
      HOME
 ===================================================== -->
 
-<section id="screen-home">
-
-```
-<div class="home-logo">
-    🎮🧑‍🎓📚
-</div>
-
-<h1 class="home-title">
-    Misi Kembara VKVK
-</h1>
-
-<p class="home-subtitle">
-    🌟 Kehidupan Seharian Saya 🌟
-</p>
-
-<p>
-    Mari belajar membaca perkataan VKVK
-    melalui permainan!
-</p>
-
-<label class="name-label">
-    👤 Nama Murid
-</label>
-
-<input
-    type="text"
-    id="student-name"
-    class="name-input"
-    placeholder="Tulis nama anda..."
-    maxlength="40"
-    autocomplete="off"
->
-
-<button
-    class="btn btn-primary"
-    onclick="startGame()"
->
-    🚀 MULA BERMAIN
-</button>
-
-<button
-    class="btn btn-blue"
-    onclick="openDashboard()"
->
-    📊 DASHBOARD
-</button>
-```
-
-</section>
-
-<!-- =====================================================
-     DASHBOARD
-===================================================== -->
-
-<section
-    id="screen-dashboard"
-    class="hidden"
->
-
-```
-<h1>📊 Dashboard Murid</h1>
-
-<p class="subtitle">
-    Rekod pembelajaran Misi Kembara VKVK
-</p>
-
 <div
-    class="student-name"
-    id="dashboard-name"
->
-    Belum ada nama
-</div>
-
-
-<div class="dashboard">
-
-    <div class="dashboard-box">
-
-        <div class="dashboard-icon">
-            🏆
-        </div>
-
-        <div class="dashboard-label">
-            Mata
-        </div>
-
-        <div
-            class="dashboard-value"
-            id="dashboard-score"
-        >
-            0
-        </div>
-
-    </div>
-
-
-    <div class="dashboard-box">
-
-        <div class="dashboard-icon">
-            🎯
-        </div>
-
-        <div class="dashboard-label">
-            Misi
-        </div>
-
-        <div
-            class="dashboard-value"
-            id="dashboard-missions"
-        >
-            0
-        </div>
-
-    </div>
-
-
-    <div class="dashboard-box">
-
-        <div class="dashboard-icon">
-            ⭐
-        </div>
-
-        <div class="dashboard-label">
-            Bintang
-        </div>
-
-        <div
-            class="dashboard-value"
-            id="dashboard-stars"
-        >
-            0
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="history-card">
-
-    <div class="history-title">
-        📜 Rekod Terakhir
-    </div>
-
-    <div id="history-list">
-
-        <p>
-            Belum ada rekod permainan.
-        </p>
-
-    </div>
-
-</div>
-
-
-<button
-    class="btn btn-primary"
-    onclick="goHome()"
->
-    🏠 HOME
-</button>
-```
-
-</section>
-
-<!-- =====================================================
-     GAME
-===================================================== -->
-
-<section
-    id="screen-game"
-    class="hidden"
+    id="screen-home"
 >
 
-```
-<div class="top-bar">
+    <div class="home-logo">
+        🎮📚🌟
+    </div>
 
-    <div
-        class="student-name"
-        id="game-student-name"
+    <h1 class="home-title">
+        Misi Kembara VKVK
+    </h1>
+
+    <p class="home-subtitle">
+        🌈 Kehidupan Seharian Saya
+    </p>
+
+    <p class="home-description">
+        Mari belajar membaca perkataan VKVK
+        melalui permainan yang menyeronokkan!
+    </p>
+
+
+    <label
+        class="name-label"
+        for="student-name"
     >
-    </div>
+        👤 Nama Murid
+    </label>
+
+    <input
+        id="student-name"
+        class="name-input"
+        type="text"
+        placeholder="Tulis nama anda..."
+        maxlength="40"
+        autocomplete="off"
+    >
+
 
     <button
-        class="btn btn-grey home-small"
-        onclick="goHome()"
+        class="btn btn-primary"
+        onclick="startGame()"
     >
-        🏠 Home
+        🚀 MULA BERMAIN
+    </button>
+
+
+    <button
+        class="btn btn-blue"
+        onclick="openDashboard()"
+    >
+        📊 DASHBOARD
     </button>
 
 </div>
 
 
-<div class="dashboard">
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div
+    id="screen-dashboard"
+    class="hidden"
+>
+
+    <h1 class="dashboard-title">
+        📊 Dashboard
+    </h1>
+
+    <p class="dashboard-subtitle">
+        Rekod Misi Kembara VKVK
+    </p>
 
 
-    <div class="dashboard-box">
+    <div
+        id="dashboard-name"
+        class="student-name"
+    >
+        👤 Belum ada nama
+    </div>
 
-        <div class="dashboard-icon">
-            🏆
+
+    <div class="dashboard">
+
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                🏆
+            </div>
+
+            <div class="dashboard-label">
+                Mata
+            </div>
+
+            <div
+                id="dashboard-score"
+                class="dashboard-value"
+            >
+                0
+            </div>
+
         </div>
 
-        <div class="dashboard-label">
-            Mata
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                🎯
+            </div>
+
+            <div class="dashboard-label">
+                Misi
+            </div>
+
+            <div
+                id="dashboard-missions"
+                class="dashboard-value"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                ⭐
+            </div>
+
+            <div class="dashboard-label">
+                Bintang
+            </div>
+
+            <div
+                id="dashboard-stars"
+                class="dashboard-value"
+            >
+                0
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="history-card">
+
+        <div class="history-title">
+            📜 Rekod Permainan
         </div>
 
         <div
-            class="dashboard-value"
-            id="score"
+            id="history-list"
         >
-            0
+            <p>
+                Belum ada rekod.
+            </p>
         </div>
 
     </div>
 
 
-    <div class="dashboard-box">
-
-        <div class="dashboard-icon">
-            🎯
-        </div>
-
-        <div class="dashboard-label">
-            Misi
-        </div>
-
-        <div class="dashboard-value">
-
-            <span id="current-mission">
-                1
-            </span>
-
-            /
-
-            <span id="total-mission">
-                30
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="dashboard-box">
-
-        <div class="dashboard-icon">
-            ⭐
-        </div>
-
-        <div class="dashboard-label">
-            Bintang
-        </div>
-
-        <div
-            class="dashboard-value"
-            id="stars"
-        >
-            0
-        </div>
-
-    </div>
+    <button
+        class="btn btn-primary"
+        onclick="goHome()"
+    >
+        🏠 HOME
+    </button>
 
 </div>
 
 
-<div class="progress-container">
+<!-- =====================================================
+     GAME
+===================================================== -->
+
+<div
+    id="screen-game"
+    class="hidden"
+>
+
+
+    <div class="top-bar">
+
+        <div
+            id="game-student-name"
+            class="student-name"
+        >
+        </div>
+
+        <button
+            class="btn btn-grey small-home"
+            onclick="goHome()"
+        >
+            🏠 Home
+        </button>
+
+    </div>
+
+
+    <div class="dashboard">
+
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                🏆
+            </div>
+
+            <div class="dashboard-label">
+                Mata
+            </div>
+
+            <div
+                id="score"
+                class="dashboard-value"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                🎯
+            </div>
+
+            <div class="dashboard-label">
+                Misi
+            </div>
+
+            <div
+                class="dashboard-value"
+            >
+
+                <span
+                    id="current-mission"
+                >
+                    1
+                </span>
+
+                /
+
+                <span
+                    id="total-mission"
+                >
+                    30
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-box">
+
+            <div class="dashboard-icon">
+                ⭐
+            </div>
+
+            <div class="dashboard-label">
+                Bintang
+            </div>
+
+            <div
+                id="stars"
+                class="dashboard-value"
+            >
+                0
+            </div>
+
+        </div>
+
+
+    </div>
+
 
     <div
-        class="progress-bar"
-        id="progress-bar"
+        class="progress-container"
+    >
+
+        <div
+            id="progress-bar"
+            class="progress-bar"
+        >
+        </div>
+
+    </div>
+
+
+    <div
+        id="progress-text"
+        class="progress-text"
+    >
+        Kemajuan: 0%
+    </div>
+
+
+    <h2
+        id="stage-title"
+    >
+    </h2>
+
+
+    <p
+        id="stage-subtitle"
+    >
+    </p>
+
+
+    <div
+        id="emoji-container"
+        class="emoji-display"
     >
     </div>
 
+
+    <div
+        id="word-display"
+        class="word-box"
+    >
+    </div>
+
+
+    <div
+        id="pyramid-container"
+        class="pyramid hidden"
+    >
+    </div>
+
+
+    <div
+        id="feedback"
+        class="feedback"
+    >
+    </div>
+
+
+    <div
+        id="options-container"
+        class="options-grid"
+    >
+    </div>
+
+
 </div>
 
-<div
-    class="progress-text"
-    id="progress-text"
->
-    Kemajuan: 0%
-</div>
-
-
-<h2
-    class="stage-title"
-    id="stage-title"
->
-</h2>
-
-<p
-    class="stage-subtitle"
-    id="stage-subtitle"
->
-</p>
-
-
-<div
-    id="emoji-container"
-    class="emoji-display"
->
-</div>
-
-
-<div
-    id="word-display"
-    class="word-box"
->
-</div>
-
-
-<div
-    id="pyramid-container"
-    class="pyramid hidden"
->
-</div>
-
-
-<div
-    id="feedback"
-    class="feedback"
->
-</div>
-
-
-<div
-    id="options-container"
-    class="options-grid"
->
-</div>
-```
-
-</section>
 
 <!-- =====================================================
-     END
+     TAMAT
 ===================================================== -->
 
-<section
+<div
     id="screen-end"
     class="hidden"
 >
 
-```
-<div class="final-icon">
-    🏆
+
+    <div class="final-icon">
+        🏆
+    </div>
+
+
+    <h1 style="text-align:center;">
+        SYABAS!
+    </h1>
+
+
+    <p
+        id="final-message"
+        class="final-message"
+    >
+    </p>
+
+
+    <div
+        id="final-stars"
+        class="final-stars"
+    >
+        ⭐
+    </div>
+
+
+    <div
+        id="final-score"
+        class="final-score"
+    >
+        0 Mata
+    </div>
+
+
+    <button
+        class="btn btn-primary"
+        onclick="restartGame()"
+    >
+        🔄 MAIN SEMULA
+    </button>
+
+
+    <button
+        class="btn btn-blue"
+        onclick="openDashboard()"
+    >
+        📊 DASHBOARD
+    </button>
+
+
+    <button
+        class="btn btn-grey"
+        onclick="goHome()"
+    >
+        🏠 HOME
+    </button>
+
+
 </div>
 
-<h1>
-    SYABAS!
-</h1>
-
-<p
-    class="final-message"
-    id="final-message"
->
-</p>
-
-<div
-    class="final-stars"
-    id="final-stars"
->
-    ⭐⭐⭐
-</div>
-
-<div
-    class="final-score"
-    id="final-score"
->
-    0 Mata
-</div>
-
-<button
-    class="btn btn-primary"
-    onclick="restartGame()"
->
-    🔄 MAIN SEMULA
-</button>
-
-<button
-    class="btn btn-blue"
-    onclick="openDashboard()"
->
-    📊 LIHAT DASHBOARD
-</button>
-
-<button
-    class="btn btn-grey"
-    onclick="goHome()"
->
-    🏠 HOME
-</button>
-```
-
-</section>
 
 </div>
+
 
 <script>
+
+/* =========================================================
+   DATA PERMAINAN
+========================================================= */
+
+/*
+   VKVK sebenar:
+
+   V = Vokal
+   K = Konsonan
+
+   Contoh:
+
+   i-kan = I K A K
+   a-yam = A K A K
+   i-tik = I K I K
+   e-pal = E K A K
+   u-bat = U K A K
+   u-lar = U K A K
+   e-mas = E K A K
+   o-bor = O K O K
+   a-lam = A K A K
+   a-man = A K A K
+   i-kut = I K U K
+   i-kat = I K A K
+   a-tas = A K A K
+   e-nam = E K A K
+   a-dik = A K I K
+*/
+
+
+const WORDS = [
+
+    {
+        word: "ikan",
+        syllable: "i-kan",
+        emoji: "🐟"
+    },
+
+    {
+        word: "ayam",
+        syllable: "a-yam",
+        emoji: "🐔"
+    },
+
+    {
+        word: "itik",
+        syllable: "i-tik",
+        emoji: "🦆"
+    },
+
+    {
+        word: "epal",
+        syllable: "e-pal",
+        emoji: "🍎"
+    },
+
+    {
+        word: "ubat",
+        syllable: "u-bat",
+        emoji: "💊"
+    },
+
+    {
+        word: "ular",
+        syllable: "u-lar",
+        emoji: "🐍"
+    },
+
+    {
+        word: "emas",
+        syllable: "e-mas",
+        emoji: "💰"
+    },
+
+    {
+        word: "obor",
+        syllable: "o-bor",
+        emoji: "🔥"
+    },
+
+    {
+        word: "alam",
+        syllable: "a-lam",
+        emoji: "🌍"
+    },
+
+    {
+        word: "aman",
+        syllable: "a-man",
+        emoji: "🕊️"
+    },
+
+    {
+        word: "atas",
+        syllable: "a-tas",
+        emoji: "⬆️"
+    },
+
+    {
+        word: "enam",
+        syllable: "e-nam",
+        emoji: "6️⃣"
+    },
+
+    {
+        word: "ikut",
+        syllable: "i-kut",
+        emoji: "🚶"
+    },
+
+    {
+        word: "ikat",
+        syllable: "i-kat",
+        emoji: "🎀"
+    },
+
+    {
+        word: "adik",
+        syllable: "a-dik",
+        emoji: "🧒"
+    }
+
+];
+
+
+/* =========================================================
+   PEMBOLEH UBAH
+========================================================= */
+
+let currentStage = 0;
+
+let score = 0;
+
+let stars = 0;
+
+let studentName = "";
+
+let questions = [];
+
+let lastQuestionIndex = -1;
+
+let answerLocked = false;
+
 
 /* =========================================================
    AUDIO
@@ -1184,7 +1494,10 @@ function initAudio() {
 
     }
 
-    if (audioCtx.state === "suspended") {
+    if (
+        audioCtx.state ===
+        "suspended"
+    ) {
 
         audioCtx.resume();
 
@@ -1199,36 +1512,38 @@ function playSound(type) {
 
         initAudio();
 
-        const osc =
+        const oscillator =
             audioCtx.createOscillator();
 
         const gain =
             audioCtx.createGain();
 
-        osc.connect(gain);
+        oscillator.connect(gain);
 
         gain.connect(
             audioCtx.destination
         );
 
 
-        if (type === "correct") {
+        if (
+            type === "correct"
+        ) {
 
-            osc.type = "sine";
+            oscillator.type = "sine";
 
-            osc.frequency.setValueAtTime(
+            oscillator.frequency.setValueAtTime(
                 523.25,
                 audioCtx.currentTime
             );
 
-            osc.frequency.setValueAtTime(
+            oscillator.frequency.setValueAtTime(
                 659.25,
-                audioCtx.currentTime + 0.12
+                audioCtx.currentTime + 0.1
             );
 
-            osc.frequency.setValueAtTime(
+            oscillator.frequency.setValueAtTime(
                 783.99,
-                audioCtx.currentTime + 0.24
+                audioCtx.currentTime + 0.2
             );
 
             gain.gain.setValueAtTime(
@@ -1236,17 +1551,18 @@ function playSound(type) {
                 audioCtx.currentTime
             );
 
-            osc.start();
+            oscillator.start();
 
-            osc.stop(
-                audioCtx.currentTime + 0.4
+            oscillator.stop(
+                audioCtx.currentTime + 0.35
             );
 
         } else {
 
-            osc.type = "triangle";
+            oscillator.type =
+                "triangle";
 
-            osc.frequency.setValueAtTime(
+            oscillator.frequency.setValueAtTime(
                 220,
                 audioCtx.currentTime
             );
@@ -1256,10 +1572,10 @@ function playSound(type) {
                 audioCtx.currentTime
             );
 
-            osc.start();
+            oscillator.start();
 
-            osc.stop(
-                audioCtx.currentTime + 0.25
+            oscillator.stop(
+                audioCtx.currentTime + 0.2
             );
 
         }
@@ -1276,471 +1592,526 @@ function playSound(type) {
 
 
 /* =========================================================
-   DATA VKVK
+   SKRIN
 ========================================================= */
 
-const stages = [
+function showScreen(id) {
 
-/* ---------------------------------------------------------
-   TAHAP 1
-   KENAL VOKAL
---------------------------------------------------------- */
+    const screens = [
 
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🐟",
-    suffix: "kan",
-    correct: "i",
-    options: ["a","i","u"]
-},
+        "screen-home",
 
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🐔",
-    suffix: "yam",
-    correct: "a",
-    options: ["a","i","o"]
-},
+        "screen-dashboard",
 
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🦆",
-    suffix: "tik",
-    correct: "i",
-    options: ["a","i","u"]
-},
+        "screen-game",
 
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🍎",
-    suffix: "pal",
-    correct: "e",
-    options: ["e","o","a"]
-},
+        "screen-end"
 
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "💊",
-    suffix: "bat",
-    correct: "u",
-    options: ["a","i","u"]
-},
-
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🔥",
-    suffix: "pi",
-    correct: "a",
-    options: ["a","i","u"]
-},
-
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🔦",
-    suffix: "bor",
-    correct: "o",
-    options: ["a","o","u"]
-},
-
-{
-    type: "vowel",
-    level: 1,
-    title: "Tahap 1: Cari Vokal",
-    subtitle: "Pilih vokal yang betul.",
-    emoji: "🥭",
-    suffix: "bat",
-    correct: "u",
-    options: ["a","i","u"]
-},
+    ];
 
 
-/* ---------------------------------------------------------
-   TAHAP 2
-   PILIH PERKATAAN
---------------------------------------------------------- */
+    screens.forEach(
+        screen => {
 
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🐟",
-    correct: "i-kan",
-    options: [
-        "i-kan",
-        "a-yam",
-        "u-bat"
-    ]
-},
+            document
+                .getElementById(screen)
+                .classList.add(
+                    "hidden"
+                );
 
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🐔",
-    correct: "a-yam",
-    options: [
-        "a-yam",
-        "i-tik",
-        "e-pal"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🦆",
-    correct: "i-tik",
-    options: [
-        "i-tik",
-        "u-bat",
-        "a-yam"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🍎",
-    correct: "e-pal",
-    options: [
-        "e-pal",
-        "i-kan",
-        "o-bor"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "💊",
-    correct: "u-bat",
-    options: [
-        "u-bat",
-        "a-yam",
-        "i-tik"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🔥",
-    correct: "a-pi",
-    options: [
-        "a-pi",
-        "i-kan",
-        "u-bat"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🔦",
-    correct: "o-bor",
-    options: [
-        "o-bor",
-        "e-pal",
-        "a-yam"
-    ]
-},
-
-{
-    type: "word",
-    level: 2,
-    title: "Tahap 2: Pilih Perkataan",
-    subtitle: "Pilih perkataan yang betul.",
-    emoji: "🐱",
-    correct: "e-kor",
-    options: [
-        "e-kor",
-        "i-kan",
-        "a-yam"
-    ]
-},
+        }
+    );
 
 
-/* ---------------------------------------------------------
-   TAHAP 3
-   BACA PERKATAAN
---------------------------------------------------------- */
+    document
+        .getElementById(id)
+        .classList.remove(
+            "hidden"
+        );
 
-{
-    type: "read",
-    level: 3,
-    title: "Tahap 3: Baca Perkataan",
-    subtitle: "Pilih perkataan yang sama dengan gambar.",
-    emoji: "🐟",
-    correct: "ikan",
-    options: [
-        "ikan",
-        "ayam",
-        "epal"
-    ]
-},
-
-{
-    type: "read",
-    level: 3,
-    title: "Tahap 3: Baca Perkataan",
-    subtitle: "Pilih perkataan yang sama dengan gambar.",
-    emoji: "🐔",
-    correct: "ayam",
-    options: [
-        "itik",
-        "ayam",
-        "ubat"
-    ]
-},
-
-{
-    type: "read",
-    level: 3,
-    title: "Tahap 3: Baca Perkataan",
-    subtitle: "Pilih perkataan yang sama dengan gambar.",
-    emoji: "🦆",
-    correct: "itik",
-    options: [
-        "ikan",
-        "itik",
-        "api"
-    ]
-},
-
-{
-    type: "read",
-    level: 3,
-    title: "Tahap 3: Baca Perkataan",
-    subtitle: "Pilih perkataan yang sama dengan gambar.",
-    emoji: "🍎",
-    correct: "epal",
-    options: [
-        "epal",
-        "ayam",
-        "obor"
-    ]
-},
-
-{
-    type: "read",
-    level: 3,
-    title: "Tahap 3: Baca Perkataan",
-    subtitle: "Pilih perkataan yang sama dengan gambar.",
-    emoji: "💊",
-    correct: "ubat",
-    options: [
-        "ubat",
-        "itik",
-        "ikan"
-    ]
-},
-
-
-/* ---------------------------------------------------------
-   TAHAP 4
-   BINA FRASA
---------------------------------------------------------- */
-
-{
-    type: "phrase",
-    level: 4,
-    title: "Tahap 4: Bina Frasa",
-    subtitle: "Pilih perkataan yang sesuai.",
-    emoji: "🐟",
-    text: "ikan + ______",
-    correct: "segar",
-    options: [
-        "segar",
-        "pahit",
-        "tajam"
-    ]
-},
-
-{
-    type: "phrase",
-    level: 4,
-    title: "Tahap 4: Bina Frasa",
-    subtitle: "Pilih perkataan yang sesuai.",
-    emoji: "🐔",
-    text: "ayam + ______",
-    correct: "goreng",
-    options: [
-        "goreng",
-        "biru",
-        "panjang"
-    ]
-},
-
-{
-    type: "phrase",
-    level: 4,
-    title: "Tahap 4: Bina Frasa",
-    subtitle: "Pilih perkataan yang sesuai.",
-    emoji: "🍎",
-    text: "epal + ______",
-    correct: "merah",
-    options: [
-        "merah",
-        "tajam",
-        "pahit"
-    ]
-},
-
-{
-    type: "phrase",
-    level: 4,
-    title: "Tahap 4: Bina Frasa",
-    subtitle: "Pilih perkataan yang sesuai.",
-    emoji: "🔥",
-    text: "api + ______",
-    correct: "panas",
-    options: [
-        "panas",
-        "segar",
-        "manis"
-    ]
-},
-
-
-/* ---------------------------------------------------------
-   TAHAP 5
-   PIRAMID AYAT
---------------------------------------------------------- */
-
-{
-    type: "pyramid",
-    level: 5,
-    title: "Tahap 5: Piramid Membaca",
-    subtitle: "Baca ayat dan jawab soalan.",
-    emoji: "📖",
-
-    lines: [
-        "Ikan.",
-        "Ini ikan.",
-        "Ini ikan adik.",
-        "Adik makan ikan."
-    ],
-
-    question: "Siapa makan ikan?",
-
-    correct: "Adik",
-
-    options: [
-        "Adik",
-        "Atuk"
-    ]
-},
-
-{
-    type: "pyramid",
-    level: 5,
-    title: "Tahap 5: Piramid Membaca",
-    subtitle: "Baca ayat dan jawab soalan.",
-    emoji: "📖",
-
-    lines: [
-        "Ayam.",
-        "Ini ayam.",
-        "Ini ayam ibu.",
-        "Ibu beri ayam makan."
-    ],
-
-    question: "Siapa beri ayam makan?",
-
-    correct: "Ibu",
-
-    options: [
-        "Ibu",
-        "Adik"
-    ]
-},
-
-{
-    type: "pyramid",
-    level: 5,
-    title: "Tahap 5: Piramid Membaca",
-    subtitle: "Baca ayat dan jawab soalan.",
-    emoji: "📖",
-
-    lines: [
-        "Epal.",
-        "Ini epal.",
-        "Ini epal merah.",
-        "Adik makan epal merah."
-    ],
-
-    question: "Siapa makan epal?",
-
-    correct: "Adik",
-
-    options: [
-        "Adik",
-        "Ayah"
-    ]
 }
 
-];
-
 
 /* =========================================================
-   VARIABLES
+   BUAT SOALAN
 ========================================================= */
 
-let currentStage = 0;
+function generateQuestions() {
 
-let score = 0;
+    questions = [];
 
-let stars = 0;
 
-let studentName = "";
+    /* -----------------------------------------
+       Tahap 1
+       Cari vokal
+    ----------------------------------------- */
 
-let answerLocked = false;
+    WORDS.forEach(
+        item => {
+
+            questions.push({
+
+                type: "vowel",
+
+                title:
+                    "Tahap 1: Cari Vokal",
+
+                subtitle:
+                    "Pilih vokal yang betul.",
+
+                emoji:
+                    item.emoji,
+
+                word:
+                    item.word,
+
+                syllable:
+                    item.syllable
+
+            });
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       Tahap 2
+       Susun perkataan
+    ----------------------------------------- */
+
+    WORDS.forEach(
+        item => {
+
+            const wrong =
+                getRandomWords(
+                    item.word,
+                    2
+                );
+
+
+            questions.push({
+
+                type: "word",
+
+                title:
+                    "Tahap 2: Pilih Perkataan",
+
+                subtitle:
+                    "Pilih perkataan yang betul.",
+
+                emoji:
+                    item.emoji,
+
+                correct:
+                    item.word,
+
+                options:
+                    shuffle([
+                        item.word,
+                        ...wrong
+                    ])
+
+            });
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       Tahap 3
+       Baca perkataan
+    ----------------------------------------- */
+
+    WORDS.forEach(
+        item => {
+
+            const wrong =
+                getRandomWords(
+                    item.word,
+                    2
+                );
+
+
+            questions.push({
+
+                type: "read",
+
+                title:
+                    "Tahap 3: Baca Perkataan",
+
+                subtitle:
+                    "Pilih perkataan yang sama dengan gambar.",
+
+                emoji:
+                    item.emoji,
+
+                correct:
+                    item.word,
+
+                options:
+                    shuffle([
+                        item.word,
+                        ...wrong
+                    ])
+
+            });
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       Tahap 4
+       Frasa
+    ----------------------------------------- */
+
+    const phrases = [
+
+        {
+            word: "ikan",
+            emoji: "🐟",
+            text: "ikan + ______",
+            correct: "segar",
+            options: [
+                "segar",
+                "pahit",
+                "tajam"
+            ]
+        },
+
+        {
+            word: "ayam",
+            emoji: "🐔",
+            text: "ayam + ______",
+            correct: "goreng",
+            options: [
+                "goreng",
+                "biru",
+                "panjang"
+            ]
+        },
+
+        {
+            word: "epal",
+            emoji: "🍎",
+            text: "epal + ______",
+            correct: "merah",
+            options: [
+                "merah",
+                "tajam",
+                "pahit"
+            ]
+        },
+
+        {
+            word: "ular",
+            emoji: "🐍",
+            text: "ular + ______",
+            correct: "panjang",
+            options: [
+                "panjang",
+                "manis",
+                "segar"
+            ]
+        },
+
+        {
+            word: "emas",
+            emoji: "💰",
+            text: "emas + ______",
+            correct: "kuning",
+            options: [
+                "kuning",
+                "pahit",
+                "segar"
+            ]
+        }
+
+    ];
+
+
+    phrases.forEach(
+        item => {
+
+            questions.push({
+
+                type: "phrase",
+
+                title:
+                    "Tahap 4: Bina Frasa",
+
+                subtitle:
+                    "Pilih perkataan yang sesuai.",
+
+                emoji:
+                    item.emoji,
+
+                text:
+                    item.text,
+
+                correct:
+                    item.correct,
+
+                options:
+                    shuffle(
+                        item.options
+                    )
+
+            });
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       Tahap 5
+       Piramid
+    ----------------------------------------- */
+
+    const pyramids = [
+
+        {
+
+            emoji: "🐟",
+
+            lines: [
+
+                "Ikan.",
+
+                "Ini ikan.",
+
+                "Ini ikan adik.",
+
+                "Adik makan ikan."
+
+            ],
+
+            question:
+                "Siapa makan ikan?",
+
+            correct:
+                "Adik",
+
+            options: [
+                "Adik",
+                "Atuk"
+            ]
+
+        },
+
+
+        {
+
+            emoji: "🐔",
+
+            lines: [
+
+                "Ayam.",
+
+                "Ini ayam.",
+
+                "Ini ayam ibu.",
+
+                "Ibu beri ayam makan."
+
+            ],
+
+            question:
+                "Siapa beri ayam makan?",
+
+            correct:
+                "Ibu",
+
+            options: [
+                "Ibu",
+                "Adik"
+            ]
+
+        },
+
+
+        {
+
+            emoji: "🍎",
+
+            lines: [
+
+                "Epal.",
+
+                "Ini epal.",
+
+                "Ini epal merah.",
+
+                "Adik makan epal merah."
+
+            ],
+
+            question:
+                "Siapa makan epal?",
+
+            correct:
+                "Adik",
+
+            options: [
+                "Adik",
+                "Ayah"
+            ]
+
+        },
+
+        {
+
+            emoji: "🐍",
+
+            lines: [
+
+                "Ular.",
+
+                "Ini ular.",
+
+                "Ini ular panjang.",
+
+                "Ali nampak ular."
+
+            ],
+
+            question:
+                "Siapa nampak ular?",
+
+            correct:
+                "Ali",
+
+            options: [
+                "Ali",
+                "Ibu"
+            ]
+
+        }
+
+    ];
+
+
+    pyramids.forEach(
+        item => {
+
+            questions.push({
+
+                type:
+                    "pyramid",
+
+                title:
+                    "Tahap 5: Piramid Membaca",
+
+                subtitle:
+                    "Baca ayat dan jawab soalan.",
+
+                emoji:
+                    item.emoji,
+
+                lines:
+                    item.lines,
+
+                question:
+                    item.question,
+
+                correct:
+                    item.correct,
+
+                options:
+                    item.options
+
+            });
+
+        }
+    );
+
+
+    /* -----------------------------------------
+       Shuffle
+    ----------------------------------------- */
+
+    questions =
+        shuffle(
+            questions
+        );
+
+}
 
 
 /* =========================================================
-   INITIALISE
+   RANDOM WORD
 ========================================================= */
 
-document.getElementById(
-    "total-mission"
-).textContent = stages.length;
+function getRandomWords(
+    correct,
+    amount
+) {
+
+    const available =
+        WORDS
+            .filter(
+                item =>
+                    item.word !== correct
+            )
+            .map(
+                item =>
+                    item.word
+            );
+
+
+    return shuffle(
+        available
+    ).slice(
+        0,
+        amount
+    );
+
+}
 
 
 /* =========================================================
-   START GAME
+   SHUFFLE
+========================================================= */
+
+function shuffle(array) {
+
+    const result =
+        [...array];
+
+
+    for (
+        let i =
+            result.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random()
+                * (i + 1)
+            );
+
+
+        [
+            result[i],
+            result[j]
+        ] =
+        [
+            result[j],
+            result[i]
+        ];
+
+    }
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   MULA GAME
 ========================================================= */
 
 function startGame() {
@@ -1750,8 +2121,10 @@ function startGame() {
             "student-name"
         );
 
+
     studentName =
         input.value.trim();
+
 
     if (!studentName) {
 
@@ -1762,9 +2135,18 @@ function startGame() {
         input.focus();
 
         return;
+
     }
 
+
+    localStorage.setItem(
+        "vkvk_student_name",
+        studentName
+    );
+
+
     initAudio();
+
 
     currentStage = 0;
 
@@ -1774,6 +2156,11 @@ function startGame() {
 
     answerLocked = false;
 
+    lastQuestionIndex = -1;
+
+
+    generateQuestions();
+
 
     document.getElementById(
         "game-student-name"
@@ -1781,41 +2168,21 @@ function startGame() {
         "👤 " + studentName;
 
 
-    showScreen("screen-game");
+    document.getElementById(
+        "total-mission"
+    ).textContent =
+        questions.length;
+
+
+    showScreen(
+        "screen-game"
+    );
+
 
     updateGameDashboard();
 
+
     loadQuestion();
-
-}
-
-
-/* =========================================================
-   SHOW SCREEN
-========================================================= */
-
-function showScreen(screenId) {
-
-    const screens = [
-        "screen-home",
-        "screen-dashboard",
-        "screen-game",
-        "screen-end"
-    ];
-
-    screens.forEach(
-        id => {
-
-            document
-                .getElementById(id)
-                .classList.add("hidden");
-
-        }
-    );
-
-    document
-        .getElementById(screenId)
-        .classList.remove("hidden");
 
 }
 
@@ -1828,8 +2195,21 @@ function loadQuestion() {
 
     answerLocked = false;
 
+
+    if (
+        currentStage >=
+        questions.length
+    ) {
+
+        finishGame();
+
+        return;
+
+    }
+
+
     const data =
-        stages[currentStage];
+        questions[currentStage];
 
 
     document.getElementById(
@@ -1855,15 +2235,18 @@ function loadQuestion() {
             "word-display"
         );
 
-    const pyramidBox =
+
+    const pyramid =
         document.getElementById(
             "pyramid-container"
         );
 
-    const optionsBox =
+
+    const options =
         document.getElementById(
             "options-container"
         );
+
 
     const feedback =
         document.getElementById(
@@ -1873,13 +2256,13 @@ function loadQuestion() {
 
     wordBox.innerHTML = "";
 
-    pyramidBox.innerHTML = "";
+    pyramid.innerHTML = "";
 
-    pyramidBox.classList.add(
+    pyramid.classList.add(
         "hidden"
     );
 
-    optionsBox.innerHTML = "";
+    options.innerHTML = "";
 
     feedback.textContent = "";
 
@@ -1887,78 +2270,161 @@ function loadQuestion() {
         "feedback";
 
 
-    /* -----------------------------------------------------
-       VOWEL
-    ----------------------------------------------------- */
+    /* =====================================================
+       VOKAL
+    ===================================================== */
 
-    if (data.type === "vowel") {
+    if (
+        data.type === "vowel"
+    ) {
+
+        const word =
+            data.word;
+
+
+        const first =
+            word.charAt(0);
+
+
+        const rest =
+            word.substring(1);
+
 
         wordBox.innerHTML = `
 
-            <span class="vowel">
+            <span
+                class="vowel"
+            >
                 _
             </span>
 
-            <span class="kvk">
-                ${data.suffix}
+            <span
+                class="consonant"
+            >
+                ${rest}
             </span>
 
         `;
 
+
+        const vowels = [
+
+            "a",
+            "i",
+            "u",
+            "e",
+            "o"
+
+        ];
+
+
+        shuffle(vowels)
+            .slice(0,3)
+            .forEach(
+                option => {
+
+                    addAnswerButton(
+                        option.toUpperCase(),
+                        first,
+                        options
+                    );
+
+                }
+            );
+
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        WORD
-    ----------------------------------------------------- */
+    ===================================================== */
 
     else if (
         data.type === "word"
     ) {
 
-        wordBox.innerHTML =
+        wordBox.textContent =
             "🔎 Pilih perkataan yang betul";
+
+
+        data.options.forEach(
+            option => {
+
+                addAnswerButton(
+                    formatWord(option),
+                    option,
+                    options
+                );
+
+            }
+        );
 
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        READ
-    ----------------------------------------------------- */
+    ===================================================== */
 
     else if (
         data.type === "read"
     ) {
 
-        wordBox.innerHTML =
-            "📖 Pilih perkataan yang betul";
+        wordBox.textContent =
+            "📖 Baca dan pilih";
+
+
+        data.options.forEach(
+            option => {
+
+                addAnswerButton(
+                    option,
+                    option,
+                    options
+                );
+
+            }
+        );
 
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PHRASE
-    ----------------------------------------------------- */
+    ===================================================== */
 
     else if (
         data.type === "phrase"
     ) {
 
-        wordBox.innerHTML =
+        wordBox.textContent =
             data.text;
+
+
+        data.options.forEach(
+            option => {
+
+                addAnswerButton(
+                    option,
+                    option,
+                    options
+                );
+
+            }
+        );
 
     }
 
 
-    /* -----------------------------------------------------
+    /* =====================================================
        PYRAMID
-    ----------------------------------------------------- */
+    ===================================================== */
 
     else if (
         data.type === "pyramid"
     ) {
 
-        pyramidBox.classList.remove(
+        pyramid.classList.remove(
             "hidden"
         );
 
@@ -1971,10 +2437,12 @@ function loadQuestion() {
                         "p"
                     );
 
+
                 p.textContent =
                     "• " + line;
 
-                pyramidBox.appendChild(
+
+                pyramid.appendChild(
                     p
                 );
 
@@ -1987,53 +2455,116 @@ function loadQuestion() {
                 "div"
             );
 
+
         question.className =
             "question";
+
 
         question.textContent =
             "❓ " + data.question;
 
-        pyramidBox.appendChild(
+
+        pyramid.appendChild(
             question
+        );
+
+
+        data.options.forEach(
+            option => {
+
+                addAnswerButton(
+                    option,
+                    option,
+                    options
+                );
+
+            }
         );
 
     }
 
 
-    /* -----------------------------------------------------
-       OPTIONS
-    ----------------------------------------------------- */
+    updateGameDashboard();
 
-    data.options.forEach(
-        option => {
+}
 
-            const button =
-                document.createElement(
-                    "button"
-                );
 
-            button.className =
-                "answer-btn";
+/* =========================================================
+   FORMAT WORD
+========================================================= */
 
-            button.textContent =
-                option;
+function formatWord(word) {
 
-            button.onclick =
-                () =>
-                    checkAnswer(
-                        option,
-                        data.correct
-                    );
+    const item =
+        WORDS.find(
+            x =>
+                x.word === word
+        );
 
-            optionsBox.appendChild(
-                button
+
+    if (!item) {
+
+        return word;
+
+    }
+
+
+    const parts =
+        item.syllable.split("-");
+
+
+    return `
+
+        <span class="vowel">
+            ${parts[0]}
+        </span>
+
+        <span class="consonant">
+            ${parts[1]}
+        </span>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ANSWER BUTTON
+========================================================= */
+
+function addAnswerButton(
+    display,
+    answer,
+    container
+) {
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+
+    button.className =
+        "answer-btn";
+
+
+    button.innerHTML =
+        display;
+
+
+    button.onclick =
+        function() {
+
+            checkAnswer(
+                answer
             );
 
-        }
+        };
+
+
+    container.appendChild(
+        button
     );
-
-
-    updateGameDashboard();
 
 }
 
@@ -2043,13 +2574,24 @@ function loadQuestion() {
 ========================================================= */
 
 function checkAnswer(
-    selected,
-    correct
+    selected
 ) {
 
     if (answerLocked) {
+
         return;
+
     }
+
+
+    const data =
+        questions[currentStage];
+
+
+    const correct =
+        data.type === "vowel"
+            ? data.word.charAt(0)
+            : data.correct;
 
 
     const feedback =
@@ -2059,10 +2601,12 @@ function checkAnswer(
 
 
     if (
-        selected === correct
+        selected.toLowerCase() ===
+        correct.toLowerCase()
     ) {
 
         answerLocked = true;
+
 
         playSound(
             "correct"
@@ -2075,7 +2619,8 @@ function checkAnswer(
 
 
         feedback.textContent =
-            "🎉 Betul! Hebat! Teruskan!";
+            "🎉 BETUL! Hebat!";
+
 
         feedback.className =
             "feedback correct";
@@ -2085,13 +2630,14 @@ function checkAnswer(
 
 
         setTimeout(
-            () => {
+            function() {
 
                 currentStage++;
 
+
                 if (
                     currentStage <
-                    stages.length
+                    questions.length
                 ) {
 
                     loadQuestion();
@@ -2106,7 +2652,9 @@ function checkAnswer(
             800
         );
 
-    } else {
+    }
+
+    else {
 
         playSound(
             "wrong"
@@ -2114,7 +2662,8 @@ function checkAnswer(
 
 
         feedback.textContent =
-            "💪 Cuba lagi. Kamu boleh!";
+            "💪 Cuba lagi! Kamu boleh!";
+
 
         feedback.className =
             "feedback wrong";
@@ -2125,7 +2674,7 @@ function checkAnswer(
 
 
 /* =========================================================
-   UPDATE GAME DASHBOARD
+   UPDATE DASHBOARD GAME
 ========================================================= */
 
 function updateGameDashboard() {
@@ -2147,17 +2696,19 @@ function updateGameDashboard() {
     ).textContent =
         Math.min(
             currentStage + 1,
-            stages.length
+            questions.length
         );
 
 
     const percentage =
-        Math.round(
-            (
-                currentStage /
-                stages.length
-            ) * 100
-        );
+        questions.length === 0
+            ? 0
+            : Math.round(
+                (
+                    currentStage /
+                    questions.length
+                ) * 100
+            );
 
 
     document.getElementById(
@@ -2177,7 +2728,7 @@ function updateGameDashboard() {
 
 
 /* =========================================================
-   FINISH GAME
+   TAMAT
 ========================================================= */
 
 function finishGame() {
@@ -2204,24 +2755,32 @@ function finishGame() {
         "! Kamu telah berjaya menamatkan semua misi VKVK.";
 
 
-    let finalStars;
+    let starDisplay;
 
 
-    if (score >= 250) {
-
-        finalStars =
-            "⭐⭐⭐";
-
-    } else if (
-        score >= 180
+    if (
+        score >=
+        questions.length * 10 * 0.8
     ) {
 
-        finalStars =
+        starDisplay =
+            "⭐⭐⭐";
+
+    }
+
+    else if (
+        score >=
+        questions.length * 10 * 0.5
+    ) {
+
+        starDisplay =
             "⭐⭐";
 
-    } else {
+    }
 
-        finalStars =
+    else {
+
+        starDisplay =
             "⭐";
 
     }
@@ -2230,18 +2789,18 @@ function finishGame() {
     document.getElementById(
         "final-stars"
     ).textContent =
-        finalStars;
+        starDisplay;
 
 }
 
 
 /* =========================================================
-   SAVE RESULT
+   SIMPAN REKOD
 ========================================================= */
 
 function saveResult() {
 
-    const oldData =
+    const oldResults =
         JSON.parse(
             localStorage.getItem(
                 "vkvk_results"
@@ -2251,14 +2810,28 @@ function saveResult() {
 
     const result = {
 
-        name: studentName,
+        name:
+            studentName,
 
-        score: score,
+        score:
+            score,
 
-        stars: stars,
+        stars:
+            stars,
 
-        missions:
-            stages.length,
+        totalQuestions:
+            questions.length,
+
+        percentage:
+            Math.round(
+                (
+                    score /
+                    (
+                        questions.length *
+                        10
+                    )
+                ) * 100
+            ),
 
         date:
             new Date()
@@ -2269,22 +2842,18 @@ function saveResult() {
     };
 
 
-    oldData.unshift(
+    oldResults.unshift(
         result
     );
-
-
-    const limitedData =
-        oldData.slice(
-            0,
-            10
-        );
 
 
     localStorage.setItem(
         "vkvk_results",
         JSON.stringify(
-            limitedData
+            oldResults.slice(
+                0,
+                20
+            )
         )
     );
 
@@ -2304,12 +2873,17 @@ function openDashboard() {
 
 
     if (
-        input &&
         input.value.trim()
     ) {
 
         studentName =
             input.value.trim();
+
+
+        localStorage.setItem(
+            "vkvk_student_name",
+            studentName
+        );
 
     }
 
@@ -2399,16 +2973,17 @@ function renderHistory() {
     results.forEach(
         result => {
 
-            const item =
+            const row =
                 document.createElement(
                     "div"
                 );
 
-            item.className =
+
+            row.className =
                 "history-item";
 
 
-            item.innerHTML = `
+            row.innerHTML = `
 
                 <span>
                     👤 ${escapeHTML(
@@ -2418,13 +2993,14 @@ function renderHistory() {
 
                 <span>
                     🏆 ${result.score}
+                    (${result.percentage}%)
                 </span>
 
             `;
 
 
             container.appendChild(
-                item
+                row
             );
 
         }
@@ -2434,18 +3010,22 @@ function renderHistory() {
 
 
 /* =========================================================
-   ESCAPE HTML
+   ESCAPE
 ========================================================= */
 
-function escapeHTML(text) {
+function escapeHTML(
+    text
+) {
 
     const div =
         document.createElement(
             "div"
         );
 
+
     div.textContent =
         text;
+
 
     return div.innerHTML;
 
@@ -2466,6 +3046,11 @@ function restartGame() {
 
     answerLocked = false;
 
+    lastQuestionIndex = -1;
+
+
+    generateQuestions();
+
 
     document.getElementById(
         "game-student-name"
@@ -2473,12 +3058,16 @@ function restartGame() {
         "👤 " + studentName;
 
 
+    document.getElementById(
+        "total-mission"
+    ).textContent =
+        questions.length;
+
+
     showScreen(
         "screen-game"
     );
 
-
-    updateGameDashboard();
 
     loadQuestion();
 
@@ -2501,7 +3090,7 @@ function goHome() {
 
 
 /* =========================================================
-   ENTER KEY
+   ENTER
 ========================================================= */
 
 document
@@ -2513,7 +3102,8 @@ document
         function(event) {
 
             if (
-                event.key === "Enter"
+                event.key ===
+                "Enter"
             ) {
 
                 startGame();
@@ -2525,79 +3115,37 @@ document
 
 
 /* =========================================================
-   LOAD SAVED NAME
+   LOAD NAMA TERSIMPAN
 ========================================================= */
 
 window.addEventListener(
     "load",
     function() {
 
-        const saved =
+        const savedName =
             localStorage.getItem(
                 "vkvk_student_name"
             );
 
 
-        if (saved) {
+        if (savedName) {
+
+            studentName =
+                savedName;
+
 
             document.getElementById(
                 "student-name"
             ).value =
-                saved;
-
-            studentName =
-                saved;
+                savedName;
 
         }
 
     }
 );
 
-
-/* =========================================================
-   SAVE NAME WHEN START
-========================================================= */
-
-const originalStartGame =
-    startGame;
-
-
-/*
-   Simpan nama secara automatik
-*/
-function saveStudentName() {
-
-    if (studentName) {
-
-        localStorage.setItem(
-            "vkvk_student_name",
-            studentName
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   PATCH START
-========================================================= */
-
-const originalStart =
-    window.startGame;
-
-
-window.startGame =
-    function() {
-
-        originalStart();
-
-        saveStudentName();
-
-    };
-
-
 </script>
 
 </body>
+
 </html>
